@@ -1,4 +1,4 @@
-# test-generator
+# react-generator
 Generate tests for existing and new react components
 
 **Creating a test for a container or component**
