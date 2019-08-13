@@ -3,24 +3,48 @@ Generate tests for existing and new react components
 
 **Creating a test for a container or component**
 
-``` yarn gentest ```
+``` yarn gt ```
+
+**Forcefully creating a test for a container or component**
+
+``` yarn gtf ```
 
 **Creating a test for an existing component**
 
 ``` yarn gtcom ```
 
+**Forcefully creating a test for an existing component**
+
+``` yarn gtcomf ```
+
 **Creating a test for an existing container**
 
 ``` yarn gtcon ```
 
-**Creating a test by specifying type, path and name**
+**Forcefully creating a test for an existing container**
 
-``` yarn gentest component src/app Button ```
+``` yarn gtconf ```
 
-**Creating a test for an existing component by specifying path and name**
+**Creating a container or component**
 
-``` yarn gtcon src/app Button ```
+``` yarn g ```
 
-**Creating a test for an existing container by specifying path and name**
+**Forcefully creating a container or component**
 
-``` yarn gtcom src/app HomePage ```
+``` yarn gf ```
+
+**Creating a component**
+
+``` yarn gcom ```
+
+**Forcefully creating a component**
+
+``` yarn gcomf ```
+
+**Creating a container**
+
+``` yarn gcon ```
+
+**Forcefully creating a container**
+
+``` yarn gtcon ```
