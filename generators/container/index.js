@@ -7,6 +7,12 @@ module.exports = {
   prompts: [
     {
       type: 'input',
+      name: 'path',
+      message: 'What is the component directory? (app)',
+      default: 'app',
+    },
+    {
+      type: 'input',
       name: 'name',
       message: 'Which container do you want to add tests for?',
       default: 'Form',
@@ -30,7 +36,7 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../app/containers/{{properCase name}}/tests/index.test.js',
+        path: '../{{path}}/containers/{{properCase name}}/tests/index.test.js',
         templateFile: './container/test.js.hbs',
         abortOnFail: true,
       },
@@ -40,7 +46,7 @@ module.exports = {
     if (data.wantMessages) {
       actions.push({
         type: 'add',
-        path: '../app/containers/{{properCase name}}/messages.js',
+        path: '../{{path}}/containers/{{properCase name}}/messages.js',
         templateFile: './container/messages.js.hbs',
         abortOnFail: true,
       });
@@ -52,7 +58,8 @@ module.exports = {
       // Actions
       actions.push({
         type: 'add',
-        path: '../app/containers/{{properCase name}}/tests/actions.test.js',
+        path:
+          '../{{path}}/containers/{{properCase name}}/tests/actions.test.js',
         templateFile: './container/actions.test.js.hbs',
         abortOnFail: true,
       });
@@ -60,7 +67,8 @@ module.exports = {
       // Selectors
       actions.push({
         type: 'add',
-        path: '../app/containers/{{properCase name}}/tests/selectors.test.js',
+        path:
+          '../{{path}}/containers/{{properCase name}}/tests/selectors.test.js',
         templateFile: './container/selectors.test.js.hbs',
         abortOnFail: true,
       });
@@ -68,7 +76,8 @@ module.exports = {
       // Reducer
       actions.push({
         type: 'add',
-        path: '../app/containers/{{properCase name}}/tests/reducer.test.js',
+        path:
+          '../{{path}}/containers/{{properCase name}}/tests/reducer.test.js',
         templateFile: './container/reducer.test.js.hbs',
         abortOnFail: true,
       });
@@ -78,7 +87,7 @@ module.exports = {
     if (data.wantSaga) {
       actions.push({
         type: 'add',
-        path: '../app/containers/{{properCase name}}/tests/saga.test.js',
+        path: '../{{path}}/containers/{{properCase name}}/tests/saga.test.js',
         templateFile: './container/saga.test.js.hbs',
         abortOnFail: true,
       });

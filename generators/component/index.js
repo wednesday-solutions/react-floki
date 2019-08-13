@@ -11,6 +11,12 @@ module.exports = {
   prompts: [
     {
       type: 'input',
+      name: 'path',
+      message: 'What is the component directory? (app)',
+      default: 'app',
+    },
+    {
+      type: 'input',
       name: 'name',
       message: 'What is the name of the component you want to add tests for?',
       default: 'Button',
@@ -21,15 +27,16 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../app/components/{{properCase name}}/tests/index.test.js',
+        path: `../{{path}}/components/{{properCase name}}/tests/index.test.js`,
         templateFile: './component/test.js.hbs',
         abortOnFail: true,
       },
+      {
+        type: 'prettify',
+        path: `components/`,
+      },
     ];
-    actions.push({
-      type: 'prettify',
-      path: '/components/',
-    });
+
     return actions;
   },
 };
