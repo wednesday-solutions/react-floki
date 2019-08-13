@@ -13,10 +13,10 @@
   "author": "Wednesday Solutions",
   "license": "MIT",
   "scripts": {
-    "gentest": "plop --plopfile generators/index.js",
+    "gt": "plop --plopfile generators/exiting/index.js",
     "gtcom": "plop --plopfile generators/existing/index.js component",
     "gtcon": "plop --plopfile generators/existing/index.js container",
-    "gentestf": "plop -f --plopfile generators/index.js",
+    "gtf": "plop -f --plopfile generators/exiting/index.js",
     "gtcomf": "plop -f --plopfile generators/existing/index.js component",
     "gtconf": "plop -f --plopfile generators/existing/index.js container",
     "g": "plop --plopfile generators/new/index.js",
