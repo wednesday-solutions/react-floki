@@ -14,8 +14,8 @@
   "license": "MIT",
   "scripts": {
     "gentest": "plop -f --plopfile generators/index.js",
-    "gtcom": "plop --plopfile generators/index.js -f component",
-    "gtcon": "plop --plopfile generators/index.js -f container",
+    "gtcom": "plop -f --plopfile generators/index.js component",
+    "gtcon": "plop -f --plopfile generators/index.js container",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint app/**/*.js",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts",
