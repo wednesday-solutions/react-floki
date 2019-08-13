@@ -36,7 +36,8 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../{{path}}/containers/{{properCase name}}/tests/index.test.js',
+        path:
+          '../../{{path}}/containers/{{properCase name}}/tests/index.test.js',
         templateFile: '../container/test.js.hbs',
         abortOnFail: true,
       },
@@ -46,7 +47,7 @@ module.exports = {
     if (data.wantMessages) {
       actions.push({
         type: 'add',
-        path: '../{{path}}/containers/{{properCase name}}/messages.js',
+        path: '../../{{path}}/containers/{{properCase name}}/messages.js',
         templateFile: '../container/messages.js.hbs',
         abortOnFail: true,
       });
@@ -59,7 +60,7 @@ module.exports = {
       actions.push({
         type: 'add',
         path:
-          '../{{path}}/containers/{{properCase name}}/tests/actions.test.js',
+          '../../{{path}}/containers/{{properCase name}}/tests/actions.test.js',
         templateFile: '../container/actions.test.js.hbs',
         abortOnFail: true,
       });
@@ -68,7 +69,7 @@ module.exports = {
       actions.push({
         type: 'add',
         path:
-          '../{{path}}/containers/{{properCase name}}/tests/selectors.test.js',
+          '../../{{path}}/containers/{{properCase name}}/tests/selectors.test.js',
         templateFile: '../container/selectors.test.js.hbs',
         abortOnFail: true,
       });
@@ -77,7 +78,7 @@ module.exports = {
       actions.push({
         type: 'add',
         path:
-          '../{{path}}/containers/{{properCase name}}/tests/reducer.test.js',
+          '../../{{path}}/containers/{{properCase name}}/tests/reducer.test.js',
         templateFile: '../container/reducer.test.js.hbs',
         abortOnFail: true,
       });
@@ -87,7 +88,8 @@ module.exports = {
     if (data.wantSaga) {
       actions.push({
         type: 'add',
-        path: '../{{path}}/containers/{{properCase name}}/tests/saga.test.js',
+        path:
+          '../../{{path}}/containers/{{properCase name}}/tests/saga.test.js',
         templateFile: '../container/saga.test.js.hbs',
         abortOnFail: true,
       });
