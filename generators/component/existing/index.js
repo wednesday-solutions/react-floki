@@ -28,7 +28,7 @@ module.exports = {
       {
         type: 'add',
         path: `../{{path}}/components/{{properCase name}}/tests/index.test.js`,
-        templateFile: './component/test.js.hbs',
+        templateFile: '../component/test.js.hbs',
         abortOnFail: true,
       },
       {
