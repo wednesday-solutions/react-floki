@@ -4,7 +4,7 @@
 
 # Installation
 
-Globally install react-generate
+**Globally install react-generate**
 
 ```npm install -g react-generate```
 
