@@ -2,29 +2,29 @@
 
 **Generate new components, containers and tests for existing and new react components**
 
-**Creating a test for a container or component:*** ```react-generate gt```
+**Creating a test for a container or component:** ```react-generate gt```
 
-**Forcefully creating a test for a container or component:*** ```react-generate gtf```
+**Forcefully creating a test for a container or component:** ```react-generate gtf```
 
-**Creating a test for an existing component:*** ```react-generate gtcom```
+**Creating a test for an existing component:** ```react-generate gtcom```
 
-**Forcefully creating a test for an existing component:*** ```react-generate gtcomf```
+**Forcefully creating a test for an existing component:** ```react-generate gtcomf```
 
-**Creating a test for an existing container:*** ```react-generate gtcon```
+**Creating a test for an existing container:** ```react-generate gtcon```
 
-**Forcefully creating a test for an existing container:*** ```react-generate gtconf```
+**Forcefully creating a test for an existing container:** ```react-generate gtconf```
 
-**Creating a container or component:*** ```react-generate g```
+**Creating a container or component:** ```react-generate g```
 
-**Forcefully creating a container or component:*** ```react-generate gf```
+**Forcefully creating a container or component:** ```react-generate gf```
 
-**Creating a component:*** ```react-generate gcom```
+**Creating a component:** ```react-generate gcom```
 
-**Forcefully creating a component:*** ```react-generate gcomf```
+**Forcefully creating a component:** ```react-generate gcomf```
 
-**Creating a container:*** ```react-generate gcon```
+**Creating a container:** ```react-generate gcon```
 
-**Forcefully creating a container:*** ```react-generate gconf```
+**Forcefully creating a container:** ```react-generate gconf```
 
 # Advanced
 **Example Usages**
