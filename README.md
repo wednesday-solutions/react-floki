@@ -1,91 +1,42 @@
 # react-generator
-Generate tests for existing and new react components
 
-**Creating a test for a container or component**
+**Generate new components, containers and tests for existing and new react components**
 
-``` yarn gt ```
+**Creating a test for a container or component:** ```react-generate gt```
 
+**Forcefully creating a test for a container or component:** ```react-generate gtf```
 
-**Forcefully creating a test for a container or component**
+**Creating a test for an existing component:** ```react-generate gtcom```
 
-``` yarn gtf ```
+**Forcefully creating a test for an existing component:** ```react-generate gtcomf```
 
+**Creating a test for an existing container:** ```react-generate gtcon```
 
-**Creating a test for an existing component**
+**Forcefully creating a test for an existing container:** ```react-generate gtconf```
 
-``` yarn gtcom ```
+**Creating a container or component:** ```react-generate g```
 
+**Forcefully creating a container or component:** ```react-generate gf```
 
-**Forcefully creating a test for an existing component**
+**Creating a component:** ```react-generate gcom```
 
-``` yarn gtcomf ```
+**Forcefully creating a component:** ```react-generate gcomf```
 
+**Creating a container:** ```react-generate gcon```
 
-**Creating a test for an existing container**
+**Forcefully creating a container:** ```react-generate gconf```
 
-``` yarn gtcon ```
+# Advanced
+**Example Usages**
 
+**Creating a test by specifying type, path and name:** ```react-generate gt component src/app Button```
 
-**Forcefully creating a test for an existing container**
+**Creating a test for an existing component by specifying path and name:** ``` react-generate gtcon src/app Button```
 
-``` yarn gtconf ```
+**Creating a test for an existing container by specifying path and name:** ``` react-generate gtcom src/app HomePage```
 
+**Creating a component/container by specifying type, path and name:** ``` react-generate g component src/app Button```
 
-**Creating a container or component**
+**Creating a component by specifying path and name:** ``` react-generate gcon src/app Button```
 
-``` yarn g ```
-
-
-**Forcefully creating a container or component**
-
-``` yarn gf ```
-
-
-**Creating a component**
-
-``` yarn gcom ```
-
-
-**Forcefully creating a component**
-
-``` yarn gcomf ```
-
-
-**Creating a container**
-
-``` yarn gcon ```
-
-
-**Forcefully creating a container**
-
-``` yarn gtcon ```
-
-
-**Creating a test by specifying type, path and name**
-
-``` yarn gt component src/app Button ```
-
-
-**Creating a test for an existing component by specifying path and name**
-
-``` yarn gtcon src/app Button ```
-
-
-**Creating a test for an existing container by specifying path and name**
-
-``` yarn gtcom src/app HomePage ```
-
-
-**Creating a component/container by specifying type, path and name**
-
-``` yarn g component src/app Button ```
-
-
-**Creating a component by specifying path and name**
-
-``` yarn gcon src/app Button ```
-
-
-**Creating a container by specifying path and name**
-
-``` yarn gcom src/app HomePage ```
+**Creating a container by specifying path and name:** ``` react-generate gcom src/app HomePage```
