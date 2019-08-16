@@ -1,40 +1,49 @@
 # react-generator
 
-**Generate new components, containers and tests for existing and new react components**
+## Generate new components, containers and tests for existing and new react components**
 
-# Installation
+### Installation
 
-**Globally install react-generate**
+#### Globally install react-generate
 
 ```npm install -g react-generate```
 
-# Documentation 
+###  Documentation 
+
+#### Generating tests for all existing components and containers
 
 **Creating a test for a container or component:** ```react-generate gt```
 
-**Forcefully creating a test for a container or component:** ```react-generate gtf```
-
 **Creating a test for an existing component:** ```react-generate gtcom```
-
-**Forcefully creating a test for an existing component:** ```react-generate gtcomf```
 
 **Creating a test for an existing container:** ```react-generate gtcon```
 
+#### Forcefully generating tests for all existing components and containers
+
+**Forcefully creating a test for a container or component:** ```react-generate gtf```
+
+**Forcefully creating a test for an existing component:** ```react-generate gtcomf```
+
 **Forcefully creating a test for an existing container:** ```react-generate gtconf```
+
+#### Generating components and containers
 
 **Creating a container or component:** ```react-generate g```
 
-**Forcefully creating a container or component:** ```react-generate gf```
-
 **Creating a component:** ```react-generate gcom```
-
-**Forcefully creating a component:** ```react-generate gcomf```
 
 **Creating a container:** ```react-generate gcon```
 
+#### Forcefully generating components and containers
+
+**Forcefully creating a container or component:** ```react-generate gf```
+
+**Forcefully creating a component:** ```react-generate gcomf```
+
 **Forcefully creating a container:** ```react-generate gconf```
 
-# Generating tests for all existing components and containers
+
+#### Generating tests for all existing components and containers
 
 **Generate test for all components in directory:** ```react-generate-all component <path-to-components>```
 
@@ -42,7 +51,7 @@
 
 # Advanced
 
-**Example Usages**
+### Example Usages
 
 **Creating a test by specifying type, path and name:** ```react-generate gt component src/app Button```
 
