@@ -1,6 +1,6 @@
 # react-generator
 
-## Generate new components, containers and tests for existing and new react components**
+## Generate new components, containers and tests for existing and new react components
 
 ## Installation
 
