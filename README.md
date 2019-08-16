@@ -45,9 +45,9 @@
 
 ### Generating tests for all existing components and containers
 
-**Generate test for all components in directory:** ```react-generate-all component <path-to-components>```
+**Generate test for all components in directory:** ```react-generate --all component <path-to-components>```
 
-**Generate test for all containers in directory:** ```react-generate-all containers <path-to-containers>```
+**Generate test for all containers in directory:** ```react-generate --all containers <path-to-containers>```
 
 # Advanced
 
@@ -65,7 +65,7 @@
 
 **Creating a container by specifying path and name:** ``` react-generate gcom src/app HomePage```
 
-**Generate test for all components in directory:** ```react-generate-all component src/app/components```
+**Generate test for all components in directory:** ```react-generate --all component src/app/components```
 
-**Generate test for all containers in directory:** ```react-generate-all containers src/app/containers```
+**Generate test for all containers in directory:** ```react-generate --all containers src/app/containers```
 
