@@ -12,7 +12,7 @@ module.exports = {
     {
       type: 'input',
       name: 'path',
-      message: 'What is the component directory? (app)',
+      message: 'What is the component directory? (app/components)',
       default: 'app',
     },
     {
@@ -45,14 +45,13 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../../{{path}}/components/{{properCase name}}/index.js',
+        path: '../../{{path}}/{{properCase name}}/index.js',
         templateFile: '../component/index.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path:
-          '../../{{path}}/components/{{properCase name}}/tests/index.test.js',
+        path: '../../{{path}}/{{properCase name}}/tests/index.test.js',
         templateFile: '../component/test.js.hbs',
         abortOnFail: true,
       },
@@ -62,25 +61,15 @@ module.exports = {
     if (data.wantMessages) {
       actions.push({
         type: 'add',
-        path: '../../{{path}}/components/{{properCase name}}/messages.js',
+        path: '../../{{path}}/{{properCase name}}/messages.js',
         templateFile: '../component/messages.js.hbs',
-        abortOnFail: true,
-      });
-    }
-
-    // If the user wants Loadable.js to load the component asynchronously
-    if (data.wantLoadable) {
-      actions.push({
-        type: 'add',
-        path: '../../{{path}}/components/{{properCase name}}/Loadable.js',
-        templateFile: '../component/loadable.js.hbs',
         abortOnFail: true,
       });
     }
 
     actions.push({
       type: 'prettify',
-      path: '/components/',
+      path: '{{path}}/',
     });
 
     return actions;

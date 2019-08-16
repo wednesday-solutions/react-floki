@@ -179,15 +179,21 @@ switch (commandLineArgs[0]) {
         `gcom: Creating a component\n` +
         `gcomf: Forcefully creating a component\n` +
         `gcon: Creating a container\n` +
-        `gconf: Forcefully creating a container\n\n` +
+        `gconf: Forcefully creating a container\n` +
+        `--all: Adding tests for all existing containers or components.\n\n` +
         `-------\n\n` +
         `Creating a test by specifying type, path and name: react-generate gt component src/app Button\n` +
         `Creating a test for an existing component by specifying path and name: react-generate gtcon src/app Button\n` +
         `Creating a test for an existing container by specifying path and name: react-generate gtcom src/app HomePage\n` +
         `Creating a component/container by specifying type, path and name: react-generate g component src/app Button\n` +
         `Creating a component by specifying path and name: react-generate gcon src/app Button\n` +
-        `Creating a container by specifying path and name: react-generate gcom src/app HomePage\n`,
+        `Creating a container by specifying path and name: react-generate gcom src/app HomePage\n` +
+        `Generate test for all components in directory: react-generate-all component src/app/components\n` +
+        `Generate test for all containers in directory: react-generate-all containers src/app/containers`,
     );
+    break;
+  case '--all':
+    shell.exec(`react-generate-all ${_.drop(commandLineArgs).join(' ')}`);
     break;
   default:
     shell.exec(`echo Sorry ${commandLineArgs[0]} is not a valid command`);

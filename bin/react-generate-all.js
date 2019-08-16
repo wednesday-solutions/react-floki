@@ -39,12 +39,6 @@ switch (commandLineArgs[0]) {
       }
     });
     break;
-  case '--help':
-    shell.echo(
-      `Generate test for all components in directory: react-generate-all component src/app/components\n` +
-        `Generate test for all containers in directory: react-generate-all containers src/app/containers`,
-    );
-    break;
   default:
     shell.exec(`echo ${commandLineArgs[0]} is not a valid argument`);
 }

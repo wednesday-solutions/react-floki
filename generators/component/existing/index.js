@@ -12,7 +12,7 @@ module.exports = {
     {
       type: 'input',
       name: 'path',
-      message: 'What is the component directory? (app)',
+      message: 'What is the component directory? (app/components)',
       default: 'app',
     },
     {
@@ -27,13 +27,13 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: `../../{{path}}/components/{{properCase name}}/tests/index.test.js`,
+        path: `../../{{path}}/{{properCase name}}/tests/index.test.js`,
         templateFile: '../component/test.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'prettify',
-        path: `components/`,
+        path: `{{path}}/`,
       },
     ];
 
