@@ -34,7 +34,7 @@ Globally install react-generate
 
 **Forcefully creating a container:** ```react-generate gconf```
 
-# Generating tests for all existing components
+# Generating tests for all existing components and containers
 
 **Generate test for all components in directory:** ```react-generate-all component <path-to-components>```
 
