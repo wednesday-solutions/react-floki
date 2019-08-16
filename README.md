@@ -26,7 +26,7 @@
 
 **Forcefully creating a container:*** ```react-generate gconf```
 
-#Advanced
+# Advanced
 **Example Usages**
 
 **Creating a test by specifying type, path and name:** ```react-generate gt component src/app Button```
