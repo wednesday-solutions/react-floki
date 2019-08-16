@@ -172,7 +172,6 @@ switch (commandLineArgs[0]) {
         `gtcomf: Forcefully creating a test for an existing component\n` +
         `gtcon: Creating a test for an existing container\n` +
         `gtconf : Forcefully creating a test for an existing component\n` +
-        `gtconf: Forcefully creating a test for an existing container\n` +
         `g: Creating a container or component\n` +
         `gf: Forcefully creating a container or component\n` +
         `gcom: Creating a component\n` +
