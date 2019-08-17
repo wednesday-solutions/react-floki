@@ -8,7 +8,7 @@
 
 ```npm install -g react-generate```
 
-###  Documentation 
+##  Documentation 
 
 ### Generating tests for all existing components and containers
 
@@ -18,6 +18,7 @@
 
 **Creating a test for an existing container:** ```react-generate gtcon```
 
+
 ### Forcefully generating tests for all existing components and containers
 
 **Forcefully creating a test for a container or component:** ```react-generate gtf```
@@ -26,6 +27,7 @@
 
 **Forcefully creating a test for an existing container:** ```react-generate gtconf```
 
+
 ### Generating components and containers
 
 **Creating a container or component:** ```react-generate g```
@@ -33,6 +35,7 @@
 **Creating a component:** ```react-generate gcom```
 
 **Creating a container:** ```react-generate gcon```
+
 
 ### Forcefully generating components and containers
 
@@ -51,7 +54,8 @@
 
 # Advanced
 
-### Example Usages
+
+## Example Usages
 
 **Creating a test by specifying type, path and name:** ```react-generate gt component src/app Button```
 
