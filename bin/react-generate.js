@@ -2,7 +2,7 @@
 const shell = require('shelljs');
 const childProcess = require('child_process');
 const _ = require('lodash');
-
+require('plop')
 const [, , ...args] = process.argv;
 const commandLineArgs = args.toString().split(',');
 if (!commandLineArgs[0]) {
@@ -14,17 +14,15 @@ if (!commandLineArgs[0]) {
 switch (commandLineArgs[0]) {
   case 'gt':
     childProcess.execFileSync(
-      'npm',
-      ['run', 'plop', '--plopfile', 'generators/existing/index.js'],
+      'plop',
+      ['--plopfile', 'generators/existing/index.js'],
       { stdio: 'inherit' },
     );
     break;
   case 'gtcom':
     childProcess.execFileSync(
-      'npm',
+      'plop',
       [
-        'run',
-        'plop',
         '--plopfile',
         'generators/existing/index.js',
         'component',
@@ -35,10 +33,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gtcon':
     childProcess.execFileSync(
-      'npm',
+      'plop',
       [
-        'run',
-        'plop',
         '--plopfile',
         'generators/existing/index.js',
         'container',
@@ -49,10 +45,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gtf':
     childProcess.execFileSync(
-      'npm',
+      'plop',
       [
-        'run',
-        'plop',
         '-f',
         '--plopfile',
         'generators/existing/index.js',
@@ -63,10 +57,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gtcomf':
     childProcess.execFileSync(
-      'npm',
+      'plop',
       [
-        'run',
-        'plop',
         '-f',
         '--plopfile',
         'generators/existing/index.js',
@@ -78,10 +70,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gtconf':
     childProcess.execFileSync(
-      'npm',
+      'plop',
       [
-        'run',
-        'plop',
         '-f',
         '--plopfile',
         'generators/existing/index.js',
@@ -93,10 +83,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'g':
     childProcess.execFileSync(
-      'npm',
+      'plop',
       [
-        'run',
-        'plop',
         '--plopfile',
         'generators/new/index.js',
         ..._.drop(commandLineArgs),
@@ -106,10 +94,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gcom':
     childProcess.execFileSync(
-      'npm',
+      'plop',
       [
-        'run',
-        'plop',
         '--plopfile',
         'generators/new/index.js',
         'component',
@@ -120,10 +106,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gcon':
     childProcess.execFileSync(
-      'npm',
+      'plop',
       [
-        'run',
-        'plop',
         '--plopfile',
         'generators/new/index.js',
         'container',
@@ -134,10 +118,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gf':
     childProcess.execFileSync(
-      'npm',
+      'plop',
       [
-        'run',
-        'plop',
         '-f',
         '--plopfile',
         'generators/new/index.js',
@@ -148,10 +130,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gcomf':
     childProcess.execFileSync(
-      'npm',
+      'plop',
       [
-        'run',
-        'plop',
         '-f',
         '--plopfile',
         'generators/new/index.js',
@@ -163,10 +143,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gconf':
     childProcess.execFileSync(
-      'npm',
+      'plop',
       [
-        'run',
-        'plop',
         '-f',
         '--plopfile',
         'generators/new/index.js',
