@@ -2,6 +2,7 @@
  * Container Generator
  */
 
+const cwd = process.cwd();
 module.exports = {
   description: 'Add test for an existing container component',
   prompts: [
@@ -36,7 +37,7 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../../{{path}}/{{properCase name}}/tests/index.test.js',
+        path: `${cwd}/{{path}}/{{properCase name}}/tests/index.test.js`,
         templateFile: '../container/test.js.hbs',
         abortOnFail: true,
       },
@@ -46,7 +47,7 @@ module.exports = {
     if (data.wantMessages) {
       actions.push({
         type: 'add',
-        path: '../../{{path}}/{{properCase name}}/messages.js',
+        path: `${cwd}/{{path}}/{{properCase name}}/messages.js`,
         templateFile: '../container/messages.js.hbs',
         abortOnFail: true,
       });
@@ -58,7 +59,7 @@ module.exports = {
       // Actions
       actions.push({
         type: 'add',
-        path: '../../{{path}}/{{properCase name}}/tests/actions.test.js',
+        path: `${cwd}/{{path}}/{{properCase name}}/tests/actions.test.js`,
         templateFile: '../container/actions.test.js.hbs',
         abortOnFail: true,
       });
@@ -66,7 +67,7 @@ module.exports = {
       // Selectors
       actions.push({
         type: 'add',
-        path: '../../{{path}}/{{properCase name}}/tests/selectors.test.js',
+        path: `${cwd}/{{path}}/{{properCase name}}/tests/selectors.test.js`,
         templateFile: '../container/selectors.test.js.hbs',
         abortOnFail: true,
       });
@@ -74,7 +75,7 @@ module.exports = {
       // Reducer
       actions.push({
         type: 'add',
-        path: '../../{{path}}/{{properCase name}}/tests/reducer.test.js',
+        path: `${cwd}/{{path}}/{{properCase name}}/tests/reducer.test.js`,
         templateFile: '../container/reducer.test.js.hbs',
         abortOnFail: true,
       });
@@ -84,7 +85,7 @@ module.exports = {
     if (data.wantSaga) {
       actions.push({
         type: 'add',
-        path: '../../{{path}}/{{properCase name}}/tests/saga.test.js',
+        path: `${cwd}/{{path}}/{{properCase name}}/tests/saga.test.js`,
         templateFile: '../container/saga.test.js.hbs',
         abortOnFail: true,
       });

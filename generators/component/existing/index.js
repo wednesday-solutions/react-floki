@@ -6,6 +6,7 @@
 
 'use strict';
 
+const cwd = process.cwd();
 module.exports = {
   description: 'Add tests for an existing component',
   prompts: [
@@ -27,7 +28,7 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: `../../{{path}}/{{properCase name}}/tests/index.test.js`,
+        path: `${cwd}/{{path}}/{{properCase name}}/tests/index.test.js`,
         templateFile: '../component/test.js.hbs',
         abortOnFail: true,
       },

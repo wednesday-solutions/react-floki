@@ -31,38 +31,16 @@ module.exports = plop => {
     }
   });
   plop.addHelper('curly', (object, open) => (open ? '{' : '}'));
-  plop.setActionType('prettify', (answers, config) => {
+  plop.setActionType('prettify', answers => {
     const folderPath = `${path.join(
-      __dirname,
-      `/../../${answers.path}/`,
-      config.path,
+      `${process.cwd()}/${answers.path}/`,
       plop.getHelper('properCase')(answers.name),
       '**/*.*.js',
     )}`;
 
     try {
-      execSync(`npm run prettify -- "${folderPath}"`);
+      execSync(`prettier --write -- "${folderPath}"`);
       return folderPath;
-    } catch (err) {
-      throw err;
-    }
-  });
-  plop.setActionType('backup', (answers, config) => {
-    try {
-      fs.copyFileSync(
-        path.join(__dirname, config.path, config.file),
-        path.join(
-          __dirname,
-          config.path,
-          `${config.file}.${BACKUPFILE_EXTENSION}`,
-        ),
-        'utf8',
-      );
-      return path.join(
-        __dirname,
-        config.path,
-        `${config.file}.${BACKUPFILE_EXTENSION}`,
-      );
     } catch (err) {
       throw err;
     }

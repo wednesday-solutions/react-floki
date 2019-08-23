@@ -6,6 +6,7 @@
 
 'use strict';
 
+const cwd = process.cwd();
 module.exports = {
   description: 'Add an unconnected component',
   prompts: [
@@ -45,13 +46,13 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../../{{path}}/{{properCase name}}/index.js',
+        path: `${cwd}/{{path}}/{{properCase name}}/index.js`,
         templateFile: '../component/index.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: '../../{{path}}/{{properCase name}}/tests/index.test.js',
+        path: `${cwd}/{{path}}/{{properCase name}}/tests/index.test.js`,
         templateFile: '../component/test.js.hbs',
         abortOnFail: true,
       },
@@ -61,7 +62,7 @@ module.exports = {
     if (data.wantMessages) {
       actions.push({
         type: 'add',
-        path: '../../{{path}}/{{properCase name}}/messages.js',
+        path: `${cwd}/{{path}}/{{properCase name}}/messages.js`,
         templateFile: '../component/messages.js.hbs',
         abortOnFail: true,
       });
