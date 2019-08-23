@@ -15,16 +15,15 @@ switch (commandLineArgs[0]) {
   case 'gt':
     childProcess.execFileSync(
       'npm',
-      'run',
-      ['plop', '--plopfile', 'generators/existing/index.js'],
+      ['run', 'plop', '--plopfile', 'generators/existing/index.js'],
       { stdio: 'inherit' },
     );
     break;
   case 'gtcom':
     childProcess.execFileSync(
       'npm',
-      'run',
       [
+        'run',
         'plop',
         '--plopfile',
         'generators/existing/index.js',
@@ -37,8 +36,8 @@ switch (commandLineArgs[0]) {
   case 'gtcon':
     childProcess.execFileSync(
       'npm',
-      'run',
       [
+        'run',
         'plop',
         '--plopfile',
         'generators/existing/index.js',
@@ -51,8 +50,8 @@ switch (commandLineArgs[0]) {
   case 'gtf':
     childProcess.execFileSync(
       'npm',
-      'run',
       [
+        'run',
         'plop',
         '-f',
         '--plopfile',
@@ -65,8 +64,8 @@ switch (commandLineArgs[0]) {
   case 'gtcomf':
     childProcess.execFileSync(
       'npm',
-      'run',
       [
+        'run',
         'plop',
         '-f',
         '--plopfile',
@@ -80,8 +79,8 @@ switch (commandLineArgs[0]) {
   case 'gtconf':
     childProcess.execFileSync(
       'npm',
-      'run',
       [
+        'run',
         'plop',
         '-f',
         '--plopfile',
@@ -95,8 +94,8 @@ switch (commandLineArgs[0]) {
   case 'g':
     childProcess.execFileSync(
       'npm',
-      'run',
       [
+        'run',
         'plop',
         '--plopfile',
         'generators/new/index.js',
@@ -108,8 +107,8 @@ switch (commandLineArgs[0]) {
   case 'gcom':
     childProcess.execFileSync(
       'npm',
-      'run',
       [
+        'run',
         'plop',
         '--plopfile',
         'generators/new/index.js',
@@ -122,8 +121,8 @@ switch (commandLineArgs[0]) {
   case 'gcon':
     childProcess.execFileSync(
       'npm',
-      'run',
       [
+        'run',
         'plop',
         '--plopfile',
         'generators/new/index.js',
@@ -136,8 +135,8 @@ switch (commandLineArgs[0]) {
   case 'gf':
     childProcess.execFileSync(
       'npm',
-      'run',
       [
+        'run',
         'plop',
         '-f',
         '--plopfile',
@@ -150,8 +149,8 @@ switch (commandLineArgs[0]) {
   case 'gcomf':
     childProcess.execFileSync(
       'npm',
-      'run',
       [
+        'run',
         'plop',
         '-f',
         '--plopfile',
@@ -165,8 +164,8 @@ switch (commandLineArgs[0]) {
   case 'gconf':
     childProcess.execFileSync(
       'npm',
-      'run',
       [
+        'run',
         'plop',
         '-f',
         '--plopfile',
