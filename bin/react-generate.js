@@ -1,8 +1,13 @@
 #! /usr/bin/env node
 const shell = require('shelljs');
 const childProcess = require('child_process');
+const process = require('process')
 const _ = require('lodash');
+const path = require('path')
 require('plop')
+
+
+const generators = path.join(__dirname, 'generators');
 const [, , ...args] = process.argv;
 const commandLineArgs = args.toString().split(',');
 if (!commandLineArgs[0]) {
@@ -15,7 +20,7 @@ switch (commandLineArgs[0]) {
   case 'gt':
     childProcess.execFileSync(
       'plop',
-      ['--plopfile', 'generators/existing/index.js'],
+      ['--plopfile', '/existing/index.js'],
       { stdio: 'inherit' },
     );
     break;
@@ -24,7 +29,7 @@ switch (commandLineArgs[0]) {
       'plop',
       [
         '--plopfile',
-        'generators/existing/index.js',
+        generators + '/existing/index.js',
         'component',
         ..._.drop(commandLineArgs),
       ],
@@ -36,7 +41,7 @@ switch (commandLineArgs[0]) {
       'plop',
       [
         '--plopfile',
-        'generators/existing/index.js',
+        generators + '/existing/index.js',
         'container',
         ..._.drop(commandLineArgs),
       ],
@@ -49,7 +54,7 @@ switch (commandLineArgs[0]) {
       [
         '-f',
         '--plopfile',
-        'generators/existing/index.js',
+        generators + '/existing/index.js',
         ..._.drop(commandLineArgs),
       ],
       { stdio: 'inherit' },
@@ -61,7 +66,7 @@ switch (commandLineArgs[0]) {
       [
         '-f',
         '--plopfile',
-        'generators/existing/index.js',
+        generators + '/existing/index.js',
         'component',
         ..._.drop(commandLineArgs),
       ],
@@ -74,7 +79,7 @@ switch (commandLineArgs[0]) {
       [
         '-f',
         '--plopfile',
-        'generators/existing/index.js',
+        generators + '/existing/index.js',
         'container',
         ..._.drop(commandLineArgs),
       ],
@@ -86,7 +91,7 @@ switch (commandLineArgs[0]) {
       'plop',
       [
         '--plopfile',
-        'generators/new/index.js',
+        generators + '/new/index.js',
         ..._.drop(commandLineArgs),
       ],
       { stdio: 'inherit' },
@@ -97,7 +102,7 @@ switch (commandLineArgs[0]) {
       'plop',
       [
         '--plopfile',
-        'generators/new/index.js',
+        generators + '/new/index.js',
         'component',
         ..._.drop(commandLineArgs),
       ],
@@ -109,7 +114,7 @@ switch (commandLineArgs[0]) {
       'plop',
       [
         '--plopfile',
-        'generators/new/index.js',
+        generators + '/new/index.js',
         'container',
         ..._.drop(commandLineArgs),
       ],
@@ -122,7 +127,7 @@ switch (commandLineArgs[0]) {
       [
         '-f',
         '--plopfile',
-        'generators/new/index.js',
+        generators + '/new/index.js',
         ..._.drop(commandLineArgs),
       ],
       { stdio: 'inherit' },
@@ -134,7 +139,7 @@ switch (commandLineArgs[0]) {
       [
         '-f',
         '--plopfile',
-        'generators/new/index.js',
+        generators + '/new/index.js',
         'component',
         ..._.drop(commandLineArgs),
       ],
@@ -147,7 +152,7 @@ switch (commandLineArgs[0]) {
       [
         '-f',
         '--plopfile',
-        'generators/new/index.js',
+        generators + '/new/index.js',
         'container',
         ..._.drop(commandLineArgs),
       ],
