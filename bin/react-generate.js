@@ -7,7 +7,7 @@ const path = require('path')
 require('plop')
 
 
-const generators = path.join(__dirname, 'generators');
+const generators = path.join(__dirname, '../generators');
 const [, , ...args] = process.argv;
 const commandLineArgs = args.toString().split(',');
 if (!commandLineArgs[0]) {
@@ -20,7 +20,7 @@ switch (commandLineArgs[0]) {
   case 'gt':
     childProcess.execFileSync(
       'plop',
-      ['--plopfile', '/existing/index.js'],
+      ['--plopfile', generators + '/existing/index.js'],
       { stdio: 'inherit' },
     );
     break;
