@@ -5,7 +5,8 @@ PACKAGE_VERSION=$(cat package.json \
   | head -1 \
   | awk -F: '{ print $2 }' \
   | sed 's/[",]//g')
-PACKAGE_VERSION="$(echo -e "${PACKAGE_VERSION}" | tr -d '[:space:]')"
+PACKAGE_VERSION="$(echo  "${PACKAGE_VERSION}" | tr -d '[:space:]')"
 echo "npm pack"
 npm pack
-echo "cp react-generator-1.0.$PACKAGE_VERSION.tgz  releases/"
+echo "mv react-generator-$PACKAGE_VERSION.tgz  releases/"
+mv react-generator-$PACKAGE_VERSION.tgz  releases/
