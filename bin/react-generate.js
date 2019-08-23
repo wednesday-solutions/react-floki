@@ -14,14 +14,16 @@ if (!commandLineArgs[0]) {
 switch (commandLineArgs[0]) {
   case 'gt':
     childProcess.execFileSync(
-      'yarn',
+      'npm',
+      'run',
       ['plop', '--plopfile', 'generators/existing/index.js'],
       { stdio: 'inherit' },
     );
     break;
   case 'gtcom':
     childProcess.execFileSync(
-      'yarn',
+      'npm',
+      'run',
       [
         'plop',
         '--plopfile',
@@ -34,7 +36,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gtcon':
     childProcess.execFileSync(
-      'yarn',
+      'npm',
+      'run',
       [
         'plop',
         '--plopfile',
@@ -47,7 +50,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gtf':
     childProcess.execFileSync(
-      'yarn',
+      'npm',
+      'run',
       [
         'plop',
         '-f',
@@ -60,7 +64,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gtcomf':
     childProcess.execFileSync(
-      'yarn',
+      'npm',
+      'run',
       [
         'plop',
         '-f',
@@ -74,7 +79,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gtconf':
     childProcess.execFileSync(
-      'yarn',
+      'npm',
+      'run',
       [
         'plop',
         '-f',
@@ -88,7 +94,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'g':
     childProcess.execFileSync(
-      'yarn',
+      'npm',
+      'run',
       [
         'plop',
         '--plopfile',
@@ -100,7 +107,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gcom':
     childProcess.execFileSync(
-      'yarn',
+      'npm',
+      'run',
       [
         'plop',
         '--plopfile',
@@ -113,7 +121,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gcon':
     childProcess.execFileSync(
-      'yarn',
+      'npm',
+      'run',
       [
         'plop',
         '--plopfile',
@@ -126,7 +135,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gf':
     childProcess.execFileSync(
-      'yarn',
+      'npm',
+      'run',
       [
         'plop',
         '-f',
@@ -139,7 +149,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gcomf':
     childProcess.execFileSync(
-      'yarn',
+      'npm',
+      'run',
       [
         'plop',
         '-f',
@@ -153,7 +164,8 @@ switch (commandLineArgs[0]) {
     break;
   case 'gconf':
     childProcess.execFileSync(
-      'yarn',
+      'npm',
+      'run',
       [
         'plop',
         '-f',

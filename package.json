@@ -94,12 +94,13 @@
     "minimist": "1.2.0",
     "ngrok": "3.1.1",
     "node-plop": "0.18.0",
-    "plop": "2.3.0",
+    "plop": "^2.4.0",
     "pre-commit": "1.2.2",
     "prettier": "1.17.0",
     "prop-types": "15.7.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
+    "react-generator": "file:react-generator-1.0.2.tgz",
     "react-intl": "2.8.0",
     "react-redux": "7.0.2",
     "react-router-dom": "5.0.0",
@@ -113,7 +114,8 @@
     "stylelint": "10.0.1",
     "stylelint-config-recommended": "2.2.0",
     "stylelint-config-styled-components": "0.1.1",
-    "stylelint-processor-styled-components": "1.6.0"
+    "stylelint-processor-styled-components": "1.6.0",
+    "yarn": "^1.17.3"
   },
   "@babel/cli": "7.4.3",
   "bin": {
