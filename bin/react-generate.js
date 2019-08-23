@@ -1,13 +1,16 @@
 #! /usr/bin/env node
 const shell = require('shelljs');
 const childProcess = require('child_process');
-const process = require('process')
+const process = require('process');
 const _ = require('lodash');
-const path = require('path')
-require('plop')
+const path = require('path');
+require('plop');
 
-
-const generators = path.join(__dirname, '../generators');
+const existingGenerator = path.join(
+  __dirname,
+  '../generators/existing/index.js',
+);
+const newGenerator = path.join(__dirname, '../generators/new/index.js');
 const [, , ...args] = process.argv;
 const commandLineArgs = args.toString().split(',');
 if (!commandLineArgs[0]) {
@@ -18,18 +21,16 @@ if (!commandLineArgs[0]) {
 }
 switch (commandLineArgs[0]) {
   case 'gt':
-    childProcess.execFileSync(
-      'plop',
-      ['--plopfile', generators + '/existing/index.js'],
-      { stdio: 'inherit' },
-    );
+    childProcess.execFileSync('plop', ['--plopfile', existingGenerator], {
+      stdio: 'inherit',
+    });
     break;
   case 'gtcom':
     childProcess.execFileSync(
       'plop',
       [
         '--plopfile',
-        generators + '/existing/index.js',
+        existingGenerator,
         'component',
         ..._.drop(commandLineArgs),
       ],
@@ -41,7 +42,7 @@ switch (commandLineArgs[0]) {
       'plop',
       [
         '--plopfile',
-        generators + '/existing/index.js',
+        existingGenerator,
         'container',
         ..._.drop(commandLineArgs),
       ],
@@ -51,12 +52,7 @@ switch (commandLineArgs[0]) {
   case 'gtf':
     childProcess.execFileSync(
       'plop',
-      [
-        '-f',
-        '--plopfile',
-        generators + '/existing/index.js',
-        ..._.drop(commandLineArgs),
-      ],
+      ['-f', '--plopfile', existingGenerator, ..._.drop(commandLineArgs)],
       { stdio: 'inherit' },
     );
     break;
@@ -66,7 +62,7 @@ switch (commandLineArgs[0]) {
       [
         '-f',
         '--plopfile',
-        generators + '/existing/index.js',
+        existingGenerator,
         'component',
         ..._.drop(commandLineArgs),
       ],
@@ -79,7 +75,7 @@ switch (commandLineArgs[0]) {
       [
         '-f',
         '--plopfile',
-        generators + '/existing/index.js',
+        existingGenerator,
         'container',
         ..._.drop(commandLineArgs),
       ],
@@ -89,47 +85,28 @@ switch (commandLineArgs[0]) {
   case 'g':
     childProcess.execFileSync(
       'plop',
-      [
-        '--plopfile',
-        generators + '/new/index.js',
-        ..._.drop(commandLineArgs),
-      ],
+      ['--plopfile', newGenerator, ..._.drop(commandLineArgs)],
       { stdio: 'inherit' },
     );
     break;
   case 'gcom':
     childProcess.execFileSync(
       'plop',
-      [
-        '--plopfile',
-        generators + '/new/index.js',
-        'component',
-        ..._.drop(commandLineArgs),
-      ],
+      ['--plopfile', newGenerator, 'component', ..._.drop(commandLineArgs)],
       { stdio: 'inherit' },
     );
     break;
   case 'gcon':
     childProcess.execFileSync(
       'plop',
-      [
-        '--plopfile',
-        generators + '/new/index.js',
-        'container',
-        ..._.drop(commandLineArgs),
-      ],
+      ['--plopfile', newGenerator, 'container', ..._.drop(commandLineArgs)],
       { stdio: 'inherit' },
     );
     break;
   case 'gf':
     childProcess.execFileSync(
       'plop',
-      [
-        '-f',
-        '--plopfile',
-        generators + '/new/index.js',
-        ..._.drop(commandLineArgs),
-      ],
+      ['-f', '--plopfile', newGenerator, ..._.drop(commandLineArgs)],
       { stdio: 'inherit' },
     );
     break;
@@ -139,7 +116,7 @@ switch (commandLineArgs[0]) {
       [
         '-f',
         '--plopfile',
-        generators + '/new/index.js',
+        newGenerator,
         'component',
         ..._.drop(commandLineArgs),
       ],
@@ -152,7 +129,7 @@ switch (commandLineArgs[0]) {
       [
         '-f',
         '--plopfile',
-        generators + '/new/index.js',
+        newGenerator,
         'container',
         ..._.drop(commandLineArgs),
       ],
