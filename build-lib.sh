@@ -8,3 +8,4 @@ PACKAGE_VERSION=$(cat package.json \
 PACKAGE_VERSION="$(echo -e "${PACKAGE_VERSION}" | tr -d '[:space:]')"
 echo "npm pack"
 npm pack
+echo "cp react-generator-1.0.$PACKAGE_VERSION.tgz  releases/"
