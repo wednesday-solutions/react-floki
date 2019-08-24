@@ -8,7 +8,7 @@
 
 ```npm install -g react-generate```
 
-###  Documentation 
+##  Documentation 
 
 ### Generating tests for all existing components and containers
 
@@ -18,6 +18,7 @@
 
 **Creating a test for an existing container:** ```react-generate gtcon```
 
+
 ### Forcefully generating tests for all existing components and containers
 
 **Forcefully creating a test for a container or component:** ```react-generate gtf```
@@ -26,6 +27,7 @@
 
 **Forcefully creating a test for an existing container:** ```react-generate gtconf```
 
+
 ### Generating components and containers
 
 **Creating a container or component:** ```react-generate g```
@@ -33,6 +35,7 @@
 **Creating a component:** ```react-generate gcom```
 
 **Creating a container:** ```react-generate gcon```
+
 
 ### Forcefully generating components and containers
 
@@ -45,13 +48,14 @@
 
 ### Generating tests for all existing components and containers
 
-**Generate test for all components in directory:** ```react-generate-all component <path-to-components>```
+**Generate test for all components in directory:** ```react-generate --all component <path-to-components>```
 
-**Generate test for all containers in directory:** ```react-generate-all containers <path-to-containers>```
+**Generate test for all containers in directory:** ```react-generate --all containers <path-to-containers>```
 
 # Advanced
 
-### Example Usages
+
+## Example Usages
 
 **Creating a test by specifying type, path and name:** ```react-generate gt component src/app Button```
 
@@ -65,7 +69,7 @@
 
 **Creating a container by specifying path and name:** ``` react-generate gcom src/app HomePage```
 
-**Generate test for all components in directory:** ```react-generate-all component src/app/components```
+**Generate test for all components in directory:** ```react-generate --all component src/app/components```
 
-**Generate test for all containers in directory:** ```react-generate-all containers src/app/containers```
+**Generate test for all containers in directory:** ```react-generate --all containers src/app/containers```
 
