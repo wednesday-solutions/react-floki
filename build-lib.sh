@@ -1,3 +1,4 @@
+#!/bin/bash
 PREV_VERSION=$(cat package.json \
   | grep version \
   | head -1 \
