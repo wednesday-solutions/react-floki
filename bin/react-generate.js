@@ -4,7 +4,7 @@ const childProcess = require('child_process');
 const process = require('process');
 const _ = require('lodash');
 const path = require('path');
-
+const plop = path.join(__dirname, '../node_modules/plop/src/plop.js');
 const existingGenerator = path.join(
   __dirname,
   '../generators/existing/index.js',
@@ -20,13 +20,13 @@ if (!commandLineArgs[0]) {
 }
 switch (commandLineArgs[0]) {
   case 'gt':
-    childProcess.execFileSync('plop', ['--plopfile', existingGenerator], {
+    childProcess.execFileSync(plop, ['--plopfile', existingGenerator], {
       stdio: 'inherit',
     });
     break;
   case 'gtcom':
     childProcess.execFileSync(
-      'plop',
+      plop,
       [
         '--plopfile',
         existingGenerator,
@@ -38,7 +38,7 @@ switch (commandLineArgs[0]) {
     break;
   case 'gtcon':
     childProcess.execFileSync(
-      'plop',
+      plop,
       [
         '--plopfile',
         existingGenerator,
@@ -50,14 +50,14 @@ switch (commandLineArgs[0]) {
     break;
   case 'gtf':
     childProcess.execFileSync(
-      'plop',
+      plop,
       ['-f', '--plopfile', existingGenerator, ..._.drop(commandLineArgs)],
       { stdio: 'inherit' },
     );
     break;
   case 'gtcomf':
     childProcess.execFileSync(
-      'plop',
+      plop,
       [
         '-f',
         '--plopfile',
@@ -70,7 +70,7 @@ switch (commandLineArgs[0]) {
     break;
   case 'gtconf':
     childProcess.execFileSync(
-      'plop',
+      plop,
       [
         '-f',
         '--plopfile',
@@ -83,35 +83,35 @@ switch (commandLineArgs[0]) {
     break;
   case 'g':
     childProcess.execFileSync(
-      'plop',
+      plop,
       ['--plopfile', newGenerator, ..._.drop(commandLineArgs)],
       { stdio: 'inherit' },
     );
     break;
   case 'gcom':
     childProcess.execFileSync(
-      'plop',
+      plop,
       ['--plopfile', newGenerator, 'component', ..._.drop(commandLineArgs)],
       { stdio: 'inherit' },
     );
     break;
   case 'gcon':
     childProcess.execFileSync(
-      'plop',
+      plop,
       ['--plopfile', newGenerator, 'container', ..._.drop(commandLineArgs)],
       { stdio: 'inherit' },
     );
     break;
   case 'gf':
     childProcess.execFileSync(
-      'plop',
+      plop,
       ['-f', '--plopfile', newGenerator, ..._.drop(commandLineArgs)],
       { stdio: 'inherit' },
     );
     break;
   case 'gcomf':
     childProcess.execFileSync(
-      'plop',
+      plop,
       [
         '-f',
         '--plopfile',
@@ -124,7 +124,7 @@ switch (commandLineArgs[0]) {
     break;
   case 'gconf':
     childProcess.execFileSync(
-      'plop',
+      plop,
       [
         '-f',
         '--plopfile',
