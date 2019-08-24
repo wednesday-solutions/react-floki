@@ -4,7 +4,6 @@ const childProcess = require('child_process');
 const process = require('process');
 const _ = require('lodash');
 const path = require('path');
-require('plop');
 
 const existingGenerator = path.join(
   __dirname,
