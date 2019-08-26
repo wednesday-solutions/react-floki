@@ -1,4 +1,5 @@
 #!/bin/bash
+npm uninstall -g react-generator
 PACKAGE_VERSION=$(cat package.json \
   | grep version \
   | head -1 \
