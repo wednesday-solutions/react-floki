@@ -9,6 +9,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 const componentGenerator = require('../component/new/index.js');
 const containerGenerator = require('../container/new/index.js');
+const prettier = path.join(__dirname, '../../node_modules/.bin/prettier');
 
 /**
  * Every generated backup file gets this extension
@@ -39,7 +40,7 @@ module.exports = plop => {
     )}`;
 
     try {
-      execSync(`prettier --write -- "${folderPath}"`);
+      execSync(`${prettier} --write -- "${folderPath}"`);
       return folderPath;
     } catch (err) {
       throw err;
