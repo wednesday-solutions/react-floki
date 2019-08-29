@@ -71,5 +71,5 @@
 
 **Generate test for all components in directory:** ```react-generate --all component src/app/components```
 
-**Generate test for all containers in directory:** ```react-generate --all containers src/app/containers```
+**Generate test for all containers in directory:** ```react-generate --all container src/app/containers```
 
