@@ -88,7 +88,6 @@
   },
   "@babel/cli": "7.4.3",
   "bin": {
-    "react-generate": "bin/react-generate.js",
-    "react-generate-all": "bin/react-generate-all.js"
+    "react-generate": "bin/react-generate.js"
   }
 }
