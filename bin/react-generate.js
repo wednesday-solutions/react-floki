@@ -11,7 +11,7 @@ const existingGenerator = path.join(
 );
 const newGenerator = path.join(__dirname, '../generators/new/index.js');
 const [, , ...args] = process.argv;
-const commandLineArgs = args.toString().split(',');
+let commandLineArgs = args.toString().split(',');
 if (!commandLineArgs[0]) {
   shell.exec(
     `echo Sorry! react-generate requires an argument to be passed. Run react-generate --help for more details`,
@@ -163,7 +163,50 @@ switch (commandLineArgs[0]) {
     );
     break;
   case '--all':
-    shell.exec(`react-generate-all ${_.drop(commandLineArgs).join(' ')}`);
+    {
+      commandLineArgs = _.drop(commandLineArgs);
+      if (!commandLineArgs[0] || !commandLineArgs[1] || commandLineArgs[2]) {
+        shell.exec(
+          `echo Sorry! react-generate-all requires 2 commandLineArgs to be passed. Run react-generate --help for more details`,
+        );
+        return;
+      }
+      let cwd;
+      let directories;
+      switch (commandLineArgs[0]) {
+        case 'component':
+          cwd = shell.exec('pwd').stdout;
+          shell.cd(`./${commandLineArgs[1]}`);
+          directories = shell.ls();
+          shell.cd(cwd);
+          directories.forEach(component => {
+            if (!_.includes(component, '.')) {
+              shell.exec(
+                `react-generate gtcom ${_.drop(commandLineArgs)} ${component}`,
+              );
+            }
+          });
+          break;
+        case 'container':
+          cwd = shell.exec('pwd').stdout;
+          shell.cd(`./${commandLineArgs[1]}`);
+          directories = shell.ls();
+          shell.cd(cwd);
+          directories.forEach(component => {
+            if (!_.includes(component, '.')) {
+              shell.echo(`Component name: ${component}`);
+              childProcess.execSync(
+                `react-generate gtcon ${_.drop(commandLineArgs)} ${component}`,
+
+                { stdio: 'inherit' },
+              );
+            }
+          });
+          break;
+        default:
+          shell.exec(`echo ${commandLineArgs[0]} is not a valid argument`);
+      }
+    }
     break;
   default:
     shell.exec(`echo Sorry ${commandLineArgs[0]} is not a valid command`);
