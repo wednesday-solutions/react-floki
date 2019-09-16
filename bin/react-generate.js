@@ -158,8 +158,8 @@ switch (commandLineArgs[0]) {
         `Creating a component/container by specifying type, path and name: react-generate g component src/app Button\n` +
         `Creating a component by specifying path and name: react-generate gcon src/app Button\n` +
         `Creating a container by specifying path and name: react-generate gcom src/app HomePage\n` +
-        `Generate test for all components in directory: react-generate-all component src/app/components\n` +
-        `Generate test for all containers in directory: react-generate-all containers src/app/containers`,
+        `Generate test for all components in directory: react-generate --all component src/app/components\n` +
+        `Generate test for all containers in directory: react-generate --all containers src/app/containers`,
     );
     break;
   case '--all':
@@ -167,7 +167,7 @@ switch (commandLineArgs[0]) {
       commandLineArgs = _.drop(commandLineArgs);
       if (!commandLineArgs[0] || !commandLineArgs[1] || commandLineArgs[2]) {
         shell.exec(
-          `echo Sorry! react-generate-all requires 2 commandLineArgs to be passed. Run react-generate --help for more details`,
+          `echo Sorry! react-generate --all requires 2 commandLineArgs to be passed. Run react-generate --help for more details`,
         );
         return;
       }
