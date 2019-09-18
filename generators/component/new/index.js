@@ -4,10 +4,9 @@
 
 /* eslint strict: ["off"] */
 
-'use strict';
+('use strict');
 
-import existing from '../existing';
-
+const existing = require('../existing');
 const cwd = process.cwd();
 module.exports = {
   description: 'Add an unconnected component',
@@ -49,10 +48,9 @@ module.exports = {
       {
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/index.js`,
-        templateFile: '../component/index.js.hbs',
+        templateFile: './component/index.js.hbs',
         abortOnFail: true,
       },
-      { ...existing.actions() },
     ];
 
     // If the user wants i18n messages
@@ -60,15 +58,13 @@ module.exports = {
       actions.push({
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/messages.js`,
-        templateFile: '../component/messages.js.hbs',
+        templateFile: './component/messages.js.hbs',
         abortOnFail: true,
       });
     }
 
-    actions.push({
-      type: 'prettify',
-      path: '{{path}}/',
-    });
+    actions.push(...existing.actions());
+    actions.push(...existing.prettier());
 
     return actions;
   },

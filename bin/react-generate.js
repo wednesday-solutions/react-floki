@@ -14,8 +14,9 @@ const plopGen = ['--plopfile', generator];
 const [, , ...args] = process.argv;
 let commandLineArgs = args.toString().split(',');
 const stdioInherit = { stdio: 'inherit' };
+
 function execShell(commandArray) {
-  childProcess.execFileSync(plop, commandArray, ...stdioInherit);
+  childProcess.execFileSync(plop, commandArray, { ...stdioInherit });
 }
 
 // validate input
@@ -27,11 +28,9 @@ if (!commandLineArgs[0]) {
 }
 
 // get the type of generator
-if (_.includes(commandLineArgs[0], 't')) {
-  shell.exec('export GENERATOR_TYPE=existing');
-} else {
-  shell.exec('export GENERATOR_TYPE=new');
-}
+shell.env.GENERATOR_TYPE = _.includes(commandLineArgs[0], 't')
+  ? 'existing'
+  : 'new';
 
 switch (commandLineArgs[0]) {
   case 'gt':
@@ -117,7 +116,7 @@ switch (commandLineArgs[0]) {
           directories.forEach(component => {
             if (!_.includes(component, '.')) {
               shell.exec(
-                `react-generate gtcom ${_.drop(commandLineArgs)} ${component}`,
+                `react-generate gtcomf ${_.drop(commandLineArgs)} ${component}`,
               );
             }
           });
@@ -131,8 +130,8 @@ switch (commandLineArgs[0]) {
             if (!_.includes(component, '.')) {
               shell.echo(`Component name: ${component}`);
               childProcess.execSync(
-                `react-generate gtcon ${_.drop(commandLineArgs)} ${component}`,
-                ...stdioInherit,
+                `react-generate gtconf ${_.drop(commandLineArgs)} ${component}`,
+                { ...stdioInherit },
               );
             }
           });

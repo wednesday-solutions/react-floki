@@ -29,21 +29,21 @@ module.exports = {
       {
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/tests/index.test.js`,
-        templateFile: '../component/test.js.hbs',
+        templateFile: './component/test.js.hbs',
         abortOnFail: true,
       },
       {
         type: 'add',
-        path: `${cwd}/{{path}}/{{properCase name}}/.stories/{{properCase name}}.story.js`,
-        templateFile: '../component/storybook.js.hbs',
+        path: `${cwd}/{{path}}/{{properCase name}}/.storybook/{{properCase name}}.story.js`,
+        templateFile: './component/storybook.js.hbs',
         abortOnFail: true,
-      },
-      {
-        type: 'prettify',
-        path: `{{path}}/`,
       },
     ];
 
     return actions;
   },
+  prettier: () => ({
+    type: 'prettify',
+    path: `{{path}}/`,
+  }),
 };

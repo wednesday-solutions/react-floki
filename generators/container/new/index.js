@@ -1,7 +1,8 @@
 /**
  * Container Generator
  */
-import existing from '../existing';
+const existing = require('../existing');
+
 const cwd = process.cwd();
 module.exports = {
   description: 'Add a container component',
@@ -62,10 +63,9 @@ module.exports = {
       {
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/index.js`,
-        templateFile: '../container/index.js.hbs',
+        templateFile: './container/index.js.hbs',
         abortOnFail: true,
       },
-      { ...existing.actions(data) },
     ];
 
     // If component wants messages
@@ -73,7 +73,7 @@ module.exports = {
       actions.push({
         type: 'add',
         path: `${cwd}{{path}}/{{properCase name}}/messages.js`,
-        templateFile: '../container/messages.js.hbs',
+        templateFile: './container/messages.js.hbs',
         abortOnFail: true,
       });
     }
@@ -85,7 +85,7 @@ module.exports = {
       actions.push({
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/actions.js`,
-        templateFile: '../container/actions.js.hbs',
+        templateFile: './container/actions.js.hbs',
         abortOnFail: true,
       });
 
@@ -93,7 +93,7 @@ module.exports = {
       actions.push({
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/constants.js`,
-        templateFile: '../container/constants.js.hbs',
+        templateFile: './container/constants.js.hbs',
         abortOnFail: true,
       });
 
@@ -101,7 +101,7 @@ module.exports = {
       actions.push({
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/selectors.js`,
-        templateFile: '../container/selectors.js.hbs',
+        templateFile: './container/selectors.js.hbs',
         abortOnFail: true,
       });
 
@@ -109,7 +109,7 @@ module.exports = {
       actions.push({
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/reducer.js`,
-        templateFile: '../container/reducer.js.hbs',
+        templateFile: './container/reducer.js.hbs',
         abortOnFail: true,
       });
     }
@@ -119,15 +119,13 @@ module.exports = {
       actions.push({
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/saga.js`,
-        templateFile: '../container/saga.js.hbs',
+        templateFile: './container/saga.js.hbs',
         abortOnFail: true,
       });
     }
 
-    actions.push({
-      type: 'prettify',
-      path: '{{path}}/',
-    });
+    actions.push(...existing.actions(data));
+    actions.push(...existing.prettier());
 
     return actions;
   },

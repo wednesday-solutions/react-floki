@@ -38,7 +38,7 @@ module.exports = {
       {
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/tests/index.test.js`,
-        templateFile: '../container/test.js.hbs',
+        templateFile: './container/test.js.hbs',
         abortOnFail: true,
       },
     ];
@@ -50,7 +50,7 @@ module.exports = {
       actions.push({
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/tests/actions.test.js`,
-        templateFile: '../container/actions.test.js.hbs',
+        templateFile: './container/actions.test.js.hbs',
         abortOnFail: true,
       });
 
@@ -58,7 +58,7 @@ module.exports = {
       actions.push({
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/tests/selectors.test.js`,
-        templateFile: '../container/selectors.test.js.hbs',
+        templateFile: './container/selectors.test.js.hbs',
         abortOnFail: true,
       });
 
@@ -66,7 +66,7 @@ module.exports = {
       actions.push({
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/tests/reducer.test.js`,
-        templateFile: '../container/reducer.test.js.hbs',
+        templateFile: './container/reducer.test.js.hbs',
         abortOnFail: true,
       });
     }
@@ -76,16 +76,14 @@ module.exports = {
       actions.push({
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/tests/saga.test.js`,
-        templateFile: '../container/saga.test.js.hbs',
+        templateFile: './container/saga.test.js.hbs',
         abortOnFail: true,
       });
     }
-
-    actions.push({
-      type: 'prettify',
-      path: '{{path}}/',
-    });
-
     return actions;
   },
+  prettier: () => ({
+    type: 'prettify',
+    path: `{{path}}/`,
+  }),
 };

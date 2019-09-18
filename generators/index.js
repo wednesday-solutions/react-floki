@@ -6,13 +6,14 @@
 
 const fs = require('fs');
 const path = require('path');
+const shell = require('shelljs');
 const { execSync } = require('child_process');
-const prettier = path.join(__dirname, '../../node_modules/.bin/prettier');
-const componentGenerator = require(`../component/${
-  process.env.GENERATOR_TYPE
+const prettier = path.join(__dirname, '../node_modules/.bin/prettier');
+const componentGenerator = require(`./component/${
+  shell.env.GENERATOR_TYPE
 }/index.js`);
-const containerGenerator = require(`../container/${
-  process.env.GENERATOR_TYPE
+const containerGenerator = require(`./container/${
+  shell.env.GENERATOR_TYPE
 }/index.js`);
 /**
  * Every generated backup file gets this extension
