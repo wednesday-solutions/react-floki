@@ -6,13 +6,11 @@
  *
  */
 
-import React from 'react';
-import {{ properCase name }} from '../index';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { text } from '@storybook/addon-knobs'
+import {{ properCase name }} from '../index'
 
-export default {
-  title: {{properCase name}}
-}
 
-export const {{properCase name}} = () => (
-  <{{properCase name}} />
-)
+storiesOf('{{properCase name}}')
+	.add('simple', () => <{{properCase name}} id={text('id', '{{properCase name}}')}/>)

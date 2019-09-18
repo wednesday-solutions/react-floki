@@ -34,7 +34,7 @@ module.exports = {
       },
       {
         type: 'add',
-        path: `${cwd}/{{path}}/{{properCase name}}/.storybook/{{properCase name}}.story.js`,
+        path: `${cwd}/{{path}}/{{properCase name}}/stories/{{properCase name}}.stories.js`,
         templateFile: './component/storybook.js.hbs',
         abortOnFail: true,
       },

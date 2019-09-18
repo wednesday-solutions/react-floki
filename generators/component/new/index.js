@@ -29,20 +29,8 @@ module.exports = {
       default: false,
       message: 'Do you want to wrap your component in React.memo?',
     },
-    {
-      type: 'confirm',
-      name: 'wantMessages',
-      default: true,
-      message: 'Do you want i18n messages (i.e. will this component use text)?',
-    },
-    {
-      type: 'confirm',
-      name: 'wantLoadable',
-      default: false,
-      message: 'Do you want to load the component asynchronously?',
-    },
   ],
-  actions: data => {
+  actions: () => {
     // Generate index.js and index.test.js
     const actions = [
       {
@@ -53,18 +41,8 @@ module.exports = {
       },
     ];
 
-    // If the user wants i18n messages
-    if (data.wantMessages) {
-      actions.push({
-        type: 'add',
-        path: `${cwd}/{{path}}/{{properCase name}}/messages.js`,
-        templateFile: './component/messages.js.hbs',
-        abortOnFail: true,
-      });
-    }
-
     actions.push(...existing.actions());
-    actions.push(...existing.prettier());
+    actions.push(existing.prettier());
 
     return actions;
   },

@@ -14,9 +14,7 @@ import { connect } from 'react-redux';
 {{#if wantHeaders}}
 import { Helmet } from 'react-helmet';
 {{/if}}
-{{#if wantMessages}}
-import { FormattedMessage } from 'react-intl';
-{{/if}}
+import { FormattedMessage as T } from 'react-intl';
 {{#if wantActionsAndReducer}}
 import { createStructuredSelector } from 'reselect';
 {{/if}}
@@ -32,9 +30,6 @@ import reducer from './reducer';
 {{/if}}
 {{#if wantSaga}}
 import saga from './saga';
-{{/if}}
-{{#if wantMessages}}
-import messages from './messages';
 {{/if}}
 
 export function {{ properCase name }}() {
@@ -53,9 +48,7 @@ export function {{ properCase name }}() {
         <meta name="description" content="Description of {{properCase name}}" />
       </Helmet>
     {{/if}}
-    {{#if wantMessages}}
-      <FormattedMessage {...messages.header} />
-    {{/if}}
+    <T id={'{{properCase name}}'} />
     </div>
   );
 }
