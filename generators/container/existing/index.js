@@ -43,16 +43,6 @@ module.exports = {
       },
     ];
 
-    // If component wants messages
-    if (data.wantMessages) {
-      actions.push({
-        type: 'add',
-        path: `${cwd}/{{path}}/{{properCase name}}/messages.js`,
-        templateFile: '../container/messages.js.hbs',
-        abortOnFail: true,
-      });
-    }
-
     // If they want actions and a reducer, generate actions.js, constants.js,
     // reducer.js and the corresponding tests for actions and the reducer
     if (data.wantActionsAndReducer) {

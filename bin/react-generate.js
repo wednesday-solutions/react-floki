@@ -4,136 +4,71 @@ const childProcess = require('child_process');
 const process = require('process');
 const _ = require('lodash');
 const path = require('path');
+
+const COMPONENT = 'component';
+const CONTAINER = 'container';
 const plop = path.join(__dirname, '../node_modules/plop/src/plop.js');
-const existingGenerator = path.join(
-  __dirname,
-  '../generators/existing/index.js',
-);
-const newGenerator = path.join(__dirname, '../generators/new/index.js');
+const generator = path.join(__dirname, '../generators/index.js');
+const plopGen = ['--plopfile', generator];
+
 const [, , ...args] = process.argv;
 let commandLineArgs = args.toString().split(',');
+const stdioInherit = { stdio: 'inherit' };
+function execShell(commandArray) {
+  childProcess.execFileSync(plop, commandArray, ...stdioInherit);
+}
+
+// validate input
 if (!commandLineArgs[0]) {
   shell.exec(
     `echo Sorry! react-generate requires an argument to be passed. Run react-generate --help for more details`,
   );
   return;
 }
+
+// get the type of generator
+if (_.includes(commandLineArgs[0], 't')) {
+  shell.exec('export GENERATOR_TYPE=existing');
+} else {
+  shell.exec('export GENERATOR_TYPE=new');
+}
+
 switch (commandLineArgs[0]) {
   case 'gt':
-    childProcess.execFileSync(plop, ['--plopfile', existingGenerator], {
-      stdio: 'inherit',
-    });
+    execShell(plopGen);
     break;
   case 'gtcom':
-    childProcess.execFileSync(
-      plop,
-      [
-        '--plopfile',
-        existingGenerator,
-        'component',
-        ..._.drop(commandLineArgs),
-      ],
-      { stdio: 'inherit' },
-    );
+    execShell([...plopGen, COMPONENT, ..._.drop(commandLineArgs)]);
     break;
   case 'gtcon':
-    childProcess.execFileSync(
-      plop,
-      [
-        '--plopfile',
-        existingGenerator,
-        'container',
-        ..._.drop(commandLineArgs),
-      ],
-      { stdio: 'inherit' },
-    );
+    execShell([...plopGen, CONTAINER, ..._.drop(commandLineArgs)]);
     break;
   case 'gtf':
-    childProcess.execFileSync(
-      plop,
-      ['-f', '--plopfile', existingGenerator, ..._.drop(commandLineArgs)],
-      { stdio: 'inherit' },
-    );
+    execShell(['-f', ...plopGen, ..._.drop(commandLineArgs)]);
     break;
   case 'gtcomf':
-    childProcess.execFileSync(
-      plop,
-      [
-        '-f',
-        '--plopfile',
-        existingGenerator,
-        'component',
-        ..._.drop(commandLineArgs),
-      ],
-      { stdio: 'inherit' },
-    );
+    execShell(['-f', ...plopGen, COMPONENT, ..._.drop(commandLineArgs)]);
     break;
   case 'gtconf':
-    childProcess.execFileSync(
-      plop,
-      [
-        '-f',
-        '--plopfile',
-        existingGenerator,
-        'container',
-        ..._.drop(commandLineArgs),
-      ],
-      { stdio: 'inherit' },
-    );
+    execShell(['-f', ...plopGen, CONTAINER, ..._.drop(commandLineArgs)]);
     break;
   case 'g':
-    childProcess.execFileSync(
-      plop,
-      ['--plopfile', newGenerator, ..._.drop(commandLineArgs)],
-      { stdio: 'inherit' },
-    );
+    execShell([...plopGen, ..._.drop(commandLineArgs)]);
     break;
   case 'gcom':
-    childProcess.execFileSync(
-      plop,
-      ['--plopfile', newGenerator, 'component', ..._.drop(commandLineArgs)],
-      { stdio: 'inherit' },
-    );
+    execShell([...plopGen, COMPONENT, ..._.drop(commandLineArgs)]);
     break;
   case 'gcon':
-    childProcess.execFileSync(
-      plop,
-      ['--plopfile', newGenerator, 'container', ..._.drop(commandLineArgs)],
-      { stdio: 'inherit' },
-    );
+    execShell([...plopGen, CONTAINER, ..._.drop(commandLineArgs)]);
     break;
   case 'gf':
-    childProcess.execFileSync(
-      plop,
-      ['-f', '--plopfile', newGenerator, ..._.drop(commandLineArgs)],
-      { stdio: 'inherit' },
-    );
+    execShell(['-f', ...plopGen, ..._.drop(commandLineArgs)]);
     break;
   case 'gcomf':
-    childProcess.execFileSync(
-      plop,
-      [
-        '-f',
-        '--plopfile',
-        newGenerator,
-        'component',
-        ..._.drop(commandLineArgs),
-      ],
-      { stdio: 'inherit' },
-    );
+    execShell(['-f', ...plopGen, COMPONENT, ..._.drop(commandLineArgs)]);
     break;
   case 'gconf':
-    childProcess.execFileSync(
-      plop,
-      [
-        '-f',
-        '--plopfile',
-        newGenerator,
-        'container',
-        ..._.drop(commandLineArgs),
-      ],
-      { stdio: 'inherit' },
-    );
+    execShell(['-f', ...plopGen, CONTAINER, ..._.drop(commandLineArgs)]);
     break;
   case '--help':
     shell.echo(
@@ -174,7 +109,7 @@ switch (commandLineArgs[0]) {
       let cwd;
       let directories;
       switch (commandLineArgs[0]) {
-        case 'component':
+        case COMPONENT:
           cwd = shell.exec('pwd').stdout;
           shell.cd(`./${commandLineArgs[1]}`);
           directories = shell.ls();
@@ -187,7 +122,7 @@ switch (commandLineArgs[0]) {
             }
           });
           break;
-        case 'container':
+        case CONTAINER:
           cwd = shell.exec('pwd').stdout;
           shell.cd(`./${commandLineArgs[1]}`);
           directories = shell.ls();
@@ -197,8 +132,7 @@ switch (commandLineArgs[0]) {
               shell.echo(`Component name: ${component}`);
               childProcess.execSync(
                 `react-generate gtcon ${_.drop(commandLineArgs)} ${component}`,
-
-                { stdio: 'inherit' },
+                ...stdioInherit,
               );
             }
           });

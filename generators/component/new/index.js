@@ -6,6 +6,8 @@
 
 'use strict';
 
+import existing from '../existing';
+
 const cwd = process.cwd();
 module.exports = {
   description: 'Add an unconnected component',
@@ -50,12 +52,7 @@ module.exports = {
         templateFile: '../component/index.js.hbs',
         abortOnFail: true,
       },
-      {
-        type: 'add',
-        path: `${cwd}/{{path}}/{{properCase name}}/tests/index.test.js`,
-        templateFile: '../component/test.js.hbs',
-        abortOnFail: true,
-      },
+      { ...existing.actions() },
     ];
 
     // If the user wants i18n messages

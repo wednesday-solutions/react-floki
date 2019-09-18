@@ -33,6 +33,12 @@ module.exports = {
         abortOnFail: true,
       },
       {
+        type: 'add',
+        path: `${cwd}/{{path}}/{{properCase name}}/.stories/{{properCase name}}.story.js`,
+        templateFile: '../component/storybook.js.hbs',
+        abortOnFail: true,
+      },
+      {
         type: 'prettify',
         path: `{{path}}/`,
       },
