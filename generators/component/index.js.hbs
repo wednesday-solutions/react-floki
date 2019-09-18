@@ -5,27 +5,27 @@
  */
 
 {{#if memo}}
-import React, { memo } from 'react';
+import React, { memo } from 'react'
 {{else}}
-import React from 'react';
+import React from 'react'
 {{/if}}
-// import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+// import PropTypes from 'prop-types'
+// import styled from 'styled-components'
 
-import { FormattedMessage as T } from 'react-intl';
+import { FormattedMessage as T } from 'react-intl'
 
 function {{ properCase name }}() {
   return (
     <div>
       <T id={'{{properCase name}}'} />
     </div>
-  );
+  )
 }
 
-{{ properCase name }}.propTypes = {};
+{{ properCase name }}.propTypes = {}
 
 {{#if memo}}
-export default memo({{ properCase name }});
+export default memo({{ properCase name }})
 {{else}}
-export default {{ properCase name }};
+export default {{ properCase name }}
 {{/if}}
