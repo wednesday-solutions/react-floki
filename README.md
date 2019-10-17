@@ -59,15 +59,15 @@
 
 **Creating a test by specifying type, path and name:** ```react-generate gt component src/app Button```
 
-**Creating a test for an existing component by specifying path and name:** ``` react-generate gtcon src/app Button```
+**Creating a test for an existing component by specifying path and name:** ``` react-generate gtcom src/app Button```
 
-**Creating a test for an existing container by specifying path and name:** ``` react-generate gtcom src/app HomePage```
+**Creating a test for an existing container by specifying path and name:** ``` react-generate gtcon src/app HomePage```
 
 **Creating a component/container by specifying type, path and name:** ``` react-generate g component src/app Button```
 
-**Creating a component by specifying path and name:** ``` react-generate gcon src/app Button```
+**Creating a component by specifying path and name:** ``` react-generate gcom src/app Button```
 
-**Creating a container by specifying path and name:** ``` react-generate gcom src/app HomePage```
+**Creating a container by specifying path and name:** ``` react-generate gcon src/app HomePage```
 
 **Generate test for all components in directory:** ```react-generate --all component src/app/components```
 
