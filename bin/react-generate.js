@@ -7,7 +7,7 @@ const path = require('path');
 
 const COMPONENT = 'component';
 const CONTAINER = 'container';
-const plop = path.join(__dirname, '../node_modules/plop/src/plop.js');
+const plop = path.join(__dirname, '../node_modules/plop/bin/plop.js');
 const generator = path.join(__dirname, '../generators/index.js');
 const plopGen = ['--plopfile', generator];
 

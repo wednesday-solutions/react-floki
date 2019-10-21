@@ -43,8 +43,8 @@ module.exports = {
       },
     ];
 
-    // If they want actions and a reducer, generate actions.js, constants.js,
-    // reducer.js and the corresponding tests for actions and the reducer
+    // If they want actions and a reducer, generate reducer.js,
+    // and the corresponding tests for actions and the reducer
     if (data.wantActionsAndReducer) {
       // Selectors
       actions.push({
