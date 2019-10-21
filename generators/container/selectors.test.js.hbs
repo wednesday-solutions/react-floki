@@ -1,7 +1,23 @@
-// import { select{{ properCase name }}Domain } from '../selectors'
+import { fromJS } from 'immutable'
+import { select{{ properCase name }}Domain } from '../selectors'
 
 describe('select{{ properCase name }}Domain', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(false)
+  })
+})
+
+describe('select{{ properCase name }}', () => {
+  let mockedState
+
+  beforeEach(() => {
+    mockedState = {
+      {{ properCase name }}: fromJS({})
+    }
+  })
+
+  it('should select the user state', () => {
+    const {{ properCase name}}Selector = select{{ properCase name }}Domain()
+    expect({{ properCase name}}Selector()).toEqual(mockedState)
   })
 })

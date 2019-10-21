@@ -1,6 +1,10 @@
 // import { take, call, put, select } from 'redux-saga/effects'
-
+// import { {{ properCase name}}Types, {{ properCase name}}Creators } from './reducer'
 // Individual exports for testing
+const { DEFAULT_ACTION } = {{ properCase name }} Types
+
+export function *defualtFunction (action) {}
+
 export default function* {{ camelCase name }}Saga() {
-  // See example in containers/HomePage/saga.js
+  yield takeLatest(DEFAULT_ACTION, defualtFunction)
 }
