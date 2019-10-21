@@ -36,6 +36,15 @@
       "git add --force"
     ]
   },
+  "keywords": [
+    "react",
+    "test",
+    "generator",
+    "cli",
+    "jest",
+    "container",
+    "component"
+  ],
   "pre-commit": "lint:staged",
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
