@@ -1,6 +1,6 @@
 {
   "name": "react-generator",
-  "version": "1.0.45",
+  "version": "1.0.46",
   "description": "A React component container and test generation library",
   "repository": {
     "type": "git",
