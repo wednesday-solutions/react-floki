@@ -6,7 +6,6 @@
 import produce from 'immer'
 import { fromJS } from 'immutable'
 import { createActions } from 'reduxsauce'
-import _ from 'lodash'
 
 export const initialState = fromJS({})
 
@@ -20,7 +19,8 @@ export const {{ camelCase name }}Reducer = (state = initialState, action) =>
     switch (action.type) {
       case {{ camelCase name}}Types.DEFAULT_ACTION:
         return state.set('somePayload', action.somePayload)
-        break
+      default:
+        return state
     }
   })
 
