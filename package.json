@@ -1,6 +1,6 @@
 {
   "name": "react-generator",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "description": "A React component container and test generation library",
   "repository": {
     "type": "git",
@@ -60,7 +60,7 @@
     "lint-staged": "8.1.5",
     "minimist": "1.2.0",
     "node-plop": "0.18.0",
-    "plop": "^2.4.0",
+    "plop": "^2.5.2",
     "pre-commit": "1.2.2",
     "prettier": "1.17.0",
     "shelljs": "^0.8.3"
@@ -68,8 +68,5 @@
   "@babel/cli": "7.4.3",
   "bin": {
     "react-generate": "bin/react-generate.js"
-  },
-  "dependencies": {
-    "redux-saga": "^1.1.1"
   }
 }
