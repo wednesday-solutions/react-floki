@@ -13,10 +13,10 @@ describe('{{ camelCase name }}Reducer', () => {
   })
 
   it('should return the update the state when an action of type DEFAULT is dispatched', () => {
-    state = expectedResult.setState('somePayload', 'Mohammed Ali Chherawalla')
+    state = expectedResult.set('somePayload', 'Mohammed Ali Chherawalla')
     const expectedResult = state
     expect(
-      exampleContainerReducer(state, {
+      {{ camelCase name }}ContainerReducer(state, {
         type: {{ properCase name}}Types.DEFAULT_ACTION,
         somePayload: 'Mohammed Ali Chherawalla'
       })

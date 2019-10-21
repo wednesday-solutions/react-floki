@@ -15,7 +15,7 @@ export const { Types: {{ properCase name }}Types, Creators: {{ properCase name }
 })
 
 /* eslint-disable default-case, no-param-reassign */
-const {{ camelCase name }}Reducer = (state = initialState, action) =>
+export const {{ camelCase name }}Reducer = (state = initialState, action) =>
   produce(state, (/* draft */) => {
     switch (action.type) {
       case {{ properCase name}}Types.DEFAULT_ACTION:

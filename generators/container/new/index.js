@@ -56,17 +56,9 @@ module.exports = {
       },
     ];
 
-    // If they want actions and a reducer, generate actions.js, constants.js,
-    // reducer.js and the corresponding tests for actions and the reducer
+    // If they want actions and a reducer, generate reducer.js and the
+    // corresponding tests for actions and the reducer
     if (data.wantActionsAndReducer) {
-      // Constants
-      actions.push({
-        type: 'add',
-        path: `${cwd}/{{path}}/{{properCase name}}/constants.js`,
-        templateFile: './container/constants.js.hbs',
-        abortOnFail: true,
-      });
-
       // Selectors
       actions.push({
         type: 'add',

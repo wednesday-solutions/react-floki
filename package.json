@@ -63,6 +63,7 @@
     "plop": "^2.5.2",
     "pre-commit": "1.2.2",
     "prettier": "1.17.0",
+    "redux-saga": "^1.1.1",
     "shelljs": "^0.8.3"
   },
   "@babel/cli": "7.4.3",
