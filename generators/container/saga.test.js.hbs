@@ -12,7 +12,7 @@ describe('{{ camelCase name }}Saga Saga', () => {
 
   it('should start task to watch for DEFAULT_ACTION action', () => {
     expect(generator.next().value).toEqual(
-      takeLatest({{ camelCase name }}Types.DEFAULT_ACTION, defualtFunction)
+      takeLatest({{ camelCase name }}Types.DEFAULT_ACTION, defaultFunction)
     )
   })
 })
