@@ -1,32 +1,25 @@
 // import produce from 'immer'
-import {{ camelCase name }}Reducer from '../reducer'
-// import { someAction } from '../actions'
+import { {{ camelCase name }}Reducer, {{ camelCase name }}Types, initialState } from '../reducer'
 
 /* eslint-disable default-case, no-param-reassign */
 describe('{{ camelCase name }}Reducer', () => {
   let state
   beforeEach(() => {
-    state = {
-      // default state params here
-    }
+    state = initialState
   })
 
-  it('returns the initial state', () => {
+  it('should return the initial state', () => {
+    expect({{ camelCase name }}Reducer(undefined, {})).toEqual(state)
+  })
+
+  it('should return the update the state when an action of type DEFAULT is dispatched', () => {
+    state = state.set('somePayload', 'Mohammed Ali Chherawalla')
     const expectedResult = state
-    expect({{ camelCase name }}Reducer(undefined, {})).toEqual(expectedResult)
+    expect(
+      {{ camelCase name }}Reducer(state, {
+        type: {{ camelCase name}}Types.DEFAULT_ACTION,
+        somePayload: 'Mohammed Ali Chherawalla'
+      })
+    ).toEqual(expectedResult)
   })
-
-  /**
-   * Example state change comparison
-   *
-   * it('should handle the someAction action correctly', () => {
-   *   const expectedResult = produce(state, draft => {
-   *     draft.loading = true
-   *     draft.error = false
-   *     draft.userData.nested = false
-   *   })
-   *
-   *   expect(appReducer(state, someAction())).toEqual(expectedResult)
-   * })
-   */
 })
