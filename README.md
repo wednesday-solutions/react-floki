@@ -6,9 +6,11 @@
 
 ### Globally install react-generate
 
-```npm install -g react-generate```
-
 ```npm install -g ./react-generator-x.x.x.tgz```
+
+OR
+
+```npm install -g react-generate```
 
 ##  Documentation 
 
