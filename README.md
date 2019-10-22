@@ -8,6 +8,8 @@
 
 ```npm install -g react-generate```
 
+```npm install -g ./react-generator-x.x.x.tgz```
+
 ##  Documentation 
 
 ### Generating tests for all existing components and containers
