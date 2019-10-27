@@ -11,6 +11,7 @@ import React from 'react'
 {{/if}}
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { injectIntl } from 'react-intl'
 {{#if wantHeaders}}
 import { Helmet } from 'react-helmet'
 {{/if}}
@@ -81,3 +82,5 @@ export default compose(
   memo,
 {{/if}}
 )({{ properCase name }})
+
+export const {{ properCase name }}Test = compose(injectIntl)({{ properCase name }})

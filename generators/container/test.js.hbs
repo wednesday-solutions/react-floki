@@ -2,37 +2,25 @@
  *
  * Tests for {{ properCase name }}
  *
- * @see https://github.com/react-boilerplate/react-boilerplate/tree/master/docs/testing
  *
  */
 
+
 import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-{{#if wantMessages}}
-import { IntlProvider } from 'react-intl'
-{{/if}}
-// import 'jest-dom/extend-expect' // add some helpful assertions
-
-import { {{ properCase name }} } from '../index'
-{{#if wantMessages}}
-import { DEFAULT_LOCALE } from '../../../i18n'
-{{/if}}
-
-Enzyme.configure({ adapter: new Adapter() })
+import { timeout, renderProvider } from '@utils/testUtils'
+import { fireEvent } from '@testing-library/dom'
+import { {{ properCase name }}Test as {{ properCase name }} } from '../index'
 
 describe('<{{ properCase name }} />', () => {
+  let submitSpy
 
+  beforeEach(() => {
+    submitSpy = jest.fn()
+  })
   it('Should render and match the snapshot', () => {
-{{#if wantMessages}}
-    const component = shallow(
-      <IntlProvider locale={DEFAULT_LOCALE}>
-        <{{ properCase name }} />
-      </IntlProvider>,
+    const { baseElement } = renderProvider(
+      <{{ properCase name }} />
     )
-{{else}}
-    const component = shallow(<{{ properCase name }} />)
-{{/if}}
-    expect(component).toMatchSnapshot()
+    expect(baseElement).toMatchSnapshot()
   })
 })
