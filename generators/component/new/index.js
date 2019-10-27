@@ -8,29 +8,27 @@
 
 const existing = require('../existing');
 const cwd = process.cwd();
+
+const prompts = [
+  {
+    type: 'input',
+    name: 'name',
+    message: 'What should it be called?',
+    default: 'Button',
+  },
+  {
+    type: 'confirm',
+    name: 'memo',
+    default: false,
+    message: 'Do you want to wrap your component in React.memo?',
+  },
+];
+prompts.unshift(existing.pathPrompt);
+prompts.push(existing.storyPrompt);
+
 module.exports = {
   description: 'Add an unconnected component',
-  prompts: [
-    {
-      type: 'input',
-      name: 'path',
-      message: 'What is the component directory? (app/components)',
-      default: 'app/components',
-    },
-    {
-      type: 'input',
-      name: 'name',
-      message: 'What should it be called?',
-      default: 'Button',
-    },
-    {
-      type: 'confirm',
-      name: 'memo',
-      default: false,
-      message: 'Do you want to wrap your component in React.memo?',
-    },
-    ...existing.storyPrompt,
-  ],
+  prompts,
   actions: data => {
     // Generate index.js and index.test.js
     const actions = [

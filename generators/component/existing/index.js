@@ -14,23 +14,29 @@ const storyPrompt = {
   default: true,
   message: 'Do you want stories for your component?',
 };
+const pathPrompt = {
+  type: 'input',
+  name: 'path',
+  message: 'What is the component directory? (app/components)',
+  default: 'app/components',
+};
+
+const prompts = [
+  {
+    type: 'input',
+    name: 'name',
+    message: 'What is the name of the component you want to add tests for?',
+    default: 'Button',
+  },
+];
+prompts.push(storyPrompt);
+prompts.push(pathPrompt);
+
 module.exports = {
   description: 'Add tests for an existing component',
-  prompts: [
-    {
-      type: 'input',
-      name: 'path',
-      message: 'What is the component directory? (app/components)',
-      default: 'app',
-    },
-    {
-      type: 'input',
-      name: 'name',
-      message: 'What is the name of the component you want to add tests for?',
-      default: 'Button',
-    },
-    ...storyPrompt,
-  ],
+  storyPrompt,
+  pathPrompt,
+  prompts,
   actions: data => {
     // index.test.js
     const actions = [
