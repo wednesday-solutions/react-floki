@@ -8,7 +8,7 @@
 
 const cwd = process.cwd();
 
-export const storyPrompt = {
+const storyPrompt = {
   type: 'confirm',
   name: 'wantStories',
   default: true,
