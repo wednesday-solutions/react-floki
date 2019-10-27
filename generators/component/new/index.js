@@ -15,7 +15,7 @@ module.exports = {
       type: 'input',
       name: 'path',
       message: 'What is the component directory? (app/components)',
-      default: 'app',
+      default: 'app/components',
     },
     {
       type: 'input',
@@ -30,7 +30,7 @@ module.exports = {
       message: 'Do you want to wrap your component in React.memo?',
     },
   ],
-  actions: () => {
+  actions: data => {
     // Generate index.js and index.test.js
     const actions = [
       {
@@ -41,7 +41,7 @@ module.exports = {
       },
     ];
 
-    actions.push(...existing.actions());
+    actions.push(...existing.actions(data));
     actions.push(existing.prettier());
 
     return actions;
