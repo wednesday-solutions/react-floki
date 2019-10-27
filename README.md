@@ -60,9 +60,9 @@ OR
 
 **Generate a test util file:** ```react-generate gtutil```
 
-### Generating a utility loadable file using react 16 lazy and Suspense
+### Generating a utility for a loadable file using React 16 lazy and Suspense
 
-**Generating a :** ```react-generate gloadable```
+**Generating a utility for a loadable file :** ```react-generate gloadable```
 
 **Generate a test util file:** ```react-generate gtutil```
 
