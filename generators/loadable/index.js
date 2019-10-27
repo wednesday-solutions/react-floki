@@ -22,7 +22,7 @@ module.exports = {
       {
         type: 'add',
         path: `${cwd}/{{path}}/loadable.js`,
-        templateFile: './loadable.js.hbs',
+        templateFile: './loadable/loadable.js.hbs',
         abortOnFail: true,
       },
     ];
