@@ -22,8 +22,14 @@ module.exports = {
       message: 'What is the name of the component you want to add tests for?',
       default: 'Button',
     },
+    {
+      type: 'confirm',
+      name: 'wantStories',
+      default: true,
+      message: 'Do you want stories for your component?',
+    },
   ],
-  actions: () => {
+  actions: data => {
     // index.test.js
     const actions = [
       {
@@ -32,13 +38,16 @@ module.exports = {
         templateFile: './component/test.js.hbs',
         abortOnFail: true,
       },
-      {
+    ];
+
+    if (data.wantStories) {
+      actions.push({
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/stories/{{properCase name}}.stories.js`,
         templateFile: './component/storybook.js.hbs',
         abortOnFail: true,
-      },
-    ];
+      });
+    }
 
     return actions;
   },

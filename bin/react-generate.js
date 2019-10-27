@@ -7,6 +7,9 @@ const path = require('path');
 
 const COMPONENT = 'component';
 const CONTAINER = 'container';
+const TEST_UTIL = 'tUtil';
+const LOADABLE = 'loadable';
+
 const plop = path.join(__dirname, '../node_modules/plop/bin/plop.js');
 const generator = path.join(__dirname, '../generators/index.js');
 const plopGen = ['--plopfile', generator];
@@ -68,6 +71,12 @@ switch (commandLineArgs[0]) {
     break;
   case 'gconf':
     execShell(['-f', ...plopGen, CONTAINER, ..._.drop(commandLineArgs)]);
+    break;
+  case 'gtutil':
+    execShell(['-f', ...plopGen, TEST_UTIL, ..._.drop(commandLineArgs)]);
+    break;
+  case 'gloadable':
+    execShell(['-f', ...plopGen, LOADABLE, ..._.drop(commandLineArgs)]);
     break;
   case '--help':
     shell.echo(

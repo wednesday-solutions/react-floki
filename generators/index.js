@@ -15,6 +15,9 @@ const componentGenerator = require(`./component/${
 const containerGenerator = require(`./container/${
   shell.env.GENERATOR_TYPE
 }/index.js`);
+const testUtilGenerator = require(`./testUtil/index.js`);
+const loadableUtilGenerator = require(`./loadable/index.js`);
+
 /**
  * Every generated backup file gets this extension
  * @type {string}
@@ -24,6 +27,9 @@ const BACKUPFILE_EXTENSION = 'rbgen';
 module.exports = plop => {
   plop.setGenerator('component', componentGenerator);
   plop.setGenerator('container', containerGenerator);
+  plop.setGenerator('tUtil', testUtilGenerator);
+  plop.setGenerator('loadable', loadableUtilGenerator);
+
   plop.addHelper('directory', comp => {
     try {
       fs.accessSync(

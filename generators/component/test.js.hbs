@@ -7,31 +7,19 @@
  */
 
 import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-{{#if wantMessages}}
-import { IntlProvider } from 'react-intl'
-{{/if}}
-// import 'jest-dom/extend-expect' // add some helpful assertions
-
+import { fireEvent } from '@testing-library/dom'
+import { renderWithIntl } from '@utils/testUtils'
 import {{ properCase name }} from '../index'
-{{#if wantMessages}}
-import { DEFAULT_LOCALE } from '../../../i18n'
-{{/if}}
-
-Enzyme.configure({ adapter: new Adapter() })
 
 describe('<{{ properCase name }} />', () => {
 
   it('Should render and match the snapshot', () => {
-{{#if wantMessages}}
-    const component = render(<IntlProvider locale={DEFAULT_LOCALE}>
-    <{{ properCase name }} />
-    </IntlProvider>,
-    )
-{{else}}
-    const component = shallow(<{{ properCase name }} />)
-{{/if}}
-    expect(component).toMatchSnapshot()
+    const { baseElement } = renderWithIntl(<{{ properCase name }} />)
+    expect(baseElement).toMatchSnapshot()
+  })
+
+  it('Should contain 1 {{ properCase name }} component', () => {
+    const { getAllByTestId } = renderWithIntl(<{{ properCase name }} />)
+    expect(getAllByTestId('{{ kebabCase name }}').length).toBe(1)
   })
 })
