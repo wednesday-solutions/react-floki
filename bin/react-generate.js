@@ -7,6 +7,9 @@ const path = require('path');
 
 const COMPONENT = 'component';
 const CONTAINER = 'container';
+const TEST_UTIL = 'tUtil';
+const LOADABLE = 'loadable';
+
 const plop = path.join(__dirname, '../node_modules/plop/bin/plop.js');
 const generator = path.join(__dirname, '../generators/index.js');
 const plopGen = ['--plopfile', generator];
@@ -69,6 +72,12 @@ switch (commandLineArgs[0]) {
   case 'gconf':
     execShell(['-f', ...plopGen, CONTAINER, ..._.drop(commandLineArgs)]);
     break;
+  case 'gtutil':
+    execShell(['-f', ...plopGen, TEST_UTIL, ..._.drop(commandLineArgs)]);
+    break;
+  case 'gloadable':
+    execShell(['-f', ...plopGen, LOADABLE, ..._.drop(commandLineArgs)]);
+    break;
   case '--help':
     shell.echo(
       `Generate tests for existing and new react components\n\n` +
@@ -84,7 +93,9 @@ switch (commandLineArgs[0]) {
         `gcomf: Forcefully creating a component\n` +
         `gcon: Creating a container\n` +
         `gconf: Forcefully creating a container\n` +
-        `--all: Adding tests for all existing containers or components.\n\n` +
+        `--all: Adding tests for all existing containers or components.\n` +
+        `gtutil: Create a test util file with some test utility functions.\n` +
+        `gloadable: Create a loadable utility file that uses lazy and Suspense from React to lazyload your containers.\n\n` +
         `-------\n\n` +
         `Creating a test by specifying type, path and name: react-generate gt component src/app Button\n` +
         `Creating a test for an existing component by specifying path and name: react-generate gtcon src/app Button\n` +

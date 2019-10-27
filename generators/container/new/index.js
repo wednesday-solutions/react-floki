@@ -86,6 +86,14 @@ module.exports = {
       });
     }
 
+    // Loadable
+    actions.push({
+      type: 'add',
+      path: `${cwd}/{{path}}/{{properCase name}}/Loadable.js`,
+      templateFile: './container/Loadable.js.hbs',
+      abortOnFail: true,
+    });
+
     actions.push(...existing.actions(data));
     actions.push(existing.prettier());
 

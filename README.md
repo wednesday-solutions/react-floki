@@ -56,6 +56,16 @@ OR
 
 **Generate test for all containers in directory:** ```react-generate --all containers <path-to-containers>```
 
+### Generating a testUtils file with some utility functions for tests
+
+**Generate a test util file:** ```react-generate gtutil```
+
+### Generating a utility loadable file using react 16 lazy and Suspense
+
+**Generating a :** ```react-generate gloadable```
+
+**Generate a test util file:** ```react-generate gtutil```
+
 # Advanced
 
 
