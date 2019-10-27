@@ -1,6 +1,6 @@
 {
   "name": "react-generator",
-  "version": "1.0.52",
+  "version": "1.0.53",
   "description": "A React component container and test generation library",
   "repository": {
     "type": "git",
@@ -53,8 +53,6 @@
     "babel-eslint": "10.0.1",
     "circular-dependency-plugin": "5.0.2",
     "coveralls": "3.0.3",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-airbnb-base": "13.1.0",
