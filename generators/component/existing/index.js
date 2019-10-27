@@ -7,6 +7,13 @@
 'use strict';
 
 const cwd = process.cwd();
+
+export const storyPrompt = {
+  type: 'confirm',
+  name: 'wantStories',
+  default: true,
+  message: 'Do you want stories for your component?',
+};
 module.exports = {
   description: 'Add tests for an existing component',
   prompts: [
@@ -22,12 +29,7 @@ module.exports = {
       message: 'What is the name of the component you want to add tests for?',
       default: 'Button',
     },
-    {
-      type: 'confirm',
-      name: 'wantStories',
-      default: true,
-      message: 'Do you want stories for your component?',
-    },
+    ...storyPrompt,
   ],
   actions: data => {
     // index.test.js
@@ -44,7 +46,7 @@ module.exports = {
       actions.push({
         type: 'add',
         path: `${cwd}/{{path}}/{{properCase name}}/stories/{{properCase name}}.stories.js`,
-        templateFile: './component/storybook.js.hbs',
+        templateFile: './component/stories.js.hbs',
         abortOnFail: true,
       });
     }

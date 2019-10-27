@@ -29,6 +29,7 @@ module.exports = {
       default: false,
       message: 'Do you want to wrap your component in React.memo?',
     },
+    ...existing.storyPrompt,
   ],
   actions: data => {
     // Generate index.js and index.test.js
