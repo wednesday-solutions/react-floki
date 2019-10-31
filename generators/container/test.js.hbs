@@ -7,17 +7,17 @@
 
 
 import React from 'react'
-import { timeout, renderProvider } from '@utils/testUtils'
-import { fireEvent } from '@testing-library/dom'
+import { renderProvider } from 'app/utils/testUtils'
+// import { fireEvent } from '@testing-library/dom'
 import { {{ properCase name }}Test as {{ properCase name }} } from '../index'
 
-describe('<{{ properCase name }} />', () => {
-  let submitSpy
+describe('<{{ properCase name }} /> container tests', () => {
+  // let submitSpy
 
   beforeEach(() => {
-    submitSpy = jest.fn()
+    // submitSpy = jest.fn()
   })
-  it('Should render and match the snapshot', () => {
+  it('should render and match the snapshot', () => {
     const { baseElement } = renderProvider(
       <{{ properCase name }} />
     )
