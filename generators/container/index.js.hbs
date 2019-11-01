@@ -9,7 +9,7 @@ import React, { memo } from 'react'
 {{else}}
 import React from 'react'
 {{/if}}
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { injectIntl } from 'react-intl'
 {{#if wantHeaders}}
@@ -55,7 +55,6 @@ export function {{ properCase name }}() {
 }
 
 {{ properCase name }}.propTypes = {
-  dispatch: PropTypes.func.isRequired,
 }
 
 {{#if wantActionsAndReducer}}

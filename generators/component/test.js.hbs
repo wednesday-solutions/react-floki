@@ -5,18 +5,18 @@
  */
 
 import React from 'react'
-import { fireEvent } from '@testing-library/dom'
+// import { fireEvent } from '@testing-library/dom'
 import { renderWithIntl } from '@utils/testUtils'
 import {{ properCase name }} from '../index'
 
 describe('<{{ properCase name }} />', () => {
 
-  it('Should render and match the snapshot', () => {
+  it('should render and match the snapshot', () => {
     const { baseElement } = renderWithIntl(<{{ properCase name }} />)
     expect(baseElement).toMatchSnapshot()
   })
 
-  it('Should contain 1 {{ properCase name }} component', () => {
+  it('should contain 1 {{ properCase name }} component', () => {
     const { getAllByTestId } = renderWithIntl(<{{ properCase name }} />)
     expect(getAllByTestId('{{ kebabCase name }}').length).toBe(1)
   })
