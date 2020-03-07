@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import configureStore from '@app/configureStore'
 import { DEFAULT_LOCALE, translationMessages } from '@app/i18n'
 import ConnectedLanguageProvider from '@containers/LanguageProvider'
-import { browserHistory } from 'react-router-dom'
+import { BrowserRouter as Router, browserHistory } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
 export const timeout = ms => new Promise(resolve => setTimeout(resolve, ms))
@@ -46,3 +46,6 @@ export const getComponentStyles = (Component, props = {}) => {
   // eslint-disable-next-line no-underscore-dangle
   return window.getComputedStyle(componentRoots[0])._values
 }
+
+export const renderWithRouterAndIntl = children =>
+  renderWithIntl(<Router>{children}</Router>);
