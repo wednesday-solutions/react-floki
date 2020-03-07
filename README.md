@@ -64,7 +64,6 @@
 
 **Generating a utility for a loadable file :** ```react-generate gloadable```
 
-**Generate a test util file:** ```react-generate gtutil```
 
 # Advanced
 
