@@ -23,8 +23,6 @@ import { compose } from 'redux'
 {{#if wantSaga}}
 import { useInjectSaga } from '@utils/injectSaga'
 {{/if}}
-{{#if wantActionsAndReducer}}
-import { useInjectReducer } from '@utils/injectReducer'
 import makeSelect{{properCase name}} from './selectors'
 import reducer from './reducer'
 {{/if}}
@@ -33,9 +31,6 @@ import saga from './saga'
 {{/if}}
 
 export function {{ properCase name }}() {
-  {{#if wantActionsAndReducer}}
-  useInjectReducer({ key: '{{ camelCase name }}', reducer })
-  {{/if}}
   {{#if wantSaga}}
   useInjectSaga({ key: '{{ camelCase name }}', saga })
   {{/if}}
