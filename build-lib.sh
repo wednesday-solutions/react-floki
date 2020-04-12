@@ -15,5 +15,5 @@ PACKAGE_VERSION=$(cat package.json \
 PACKAGE_VERSION="$(echo  "${PACKAGE_VERSION}" | tr -d '[:space:]')"
 echo "npm pack"
 npm pack
-echo "rm react-generator-$PREV_VERSION.tgz"
-rm react-generator-$PREV_VERSION.tgz
+echo "rm react-floki-$PREV_VERSION.tgz"
+rm react-floki-$PREV_VERSION.tgz
