@@ -6,11 +6,11 @@
 
 ### Globally install react-generate
 
-`./install.sh`
+`npm install -g react-floki`
 
 **OR**
 
-`npm install -g react-floki`
+`yarn global add react-floki`
 
 ## Documentation
 
