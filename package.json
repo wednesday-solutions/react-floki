@@ -1,10 +1,10 @@
 {
   "name": "react-floki",
   "version": "1.0.58",
-  "description": "A React component container and test generation library",
+  "description": "A React component, container and test generation library",
   "repository": {
     "type": "git",
-    "url": "git://github.com/wednesday-solutions/test-generator.git"
+    "url": "git://github.com/wednesday-solutions/react-floki.git"
   },
   "engines": {
     "npm": ">=5",
