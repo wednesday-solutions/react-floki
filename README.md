@@ -12,6 +12,14 @@
 
 `yarn global add react-floki`
 
+## Generating containers with tests and stories
+
+![](screenshots/gcon.png)
+
+## Generate components with tests and stories
+
+![](screenshots/gcom.png)
+
 ## Documentation
 
 ### Generating tests for all existing components and containers
