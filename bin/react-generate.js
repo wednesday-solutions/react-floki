@@ -10,7 +10,6 @@ const CONTAINER = 'container';
 const TEST_UTIL = 'tUtil';
 const LOADABLE = 'loadable';
 
-const plop = path.join(__dirname, '../node_modules/plop/bin/plop.js');
 const generator = path.join(__dirname, '../generators/index.js');
 const plopGen = ['--plopfile', generator];
 
@@ -19,7 +18,7 @@ let commandLineArgs = args.toString().split(',');
 const stdioInherit = { stdio: 'inherit' };
 
 function execShell(commandArray) {
-  childProcess.execFileSync(plop, commandArray, { ...stdioInherit });
+  childProcess.execFileSync('plop', commandArray, { ...stdioInherit });
 }
 
 // validate input
