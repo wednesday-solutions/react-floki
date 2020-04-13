@@ -13,6 +13,7 @@
   "author": "Wednesday Solutions",
   "license": "MIT",
   "scripts": {
+    "preinstall": "npm install -g plop",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint app/**/*.js",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts",
