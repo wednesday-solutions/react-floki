@@ -17,6 +17,7 @@ const containerGenerator = require(`./container/${
 }/index.js`);
 const testUtilGenerator = require(`./testUtil/index.js`);
 const loadableUtilGenerator = require(`./loadable/index.js`);
+const injectSagaUtilGenerator = require(`./injectSaga/index.js`);
 
 /**
  * Every generated backup file gets this extension
@@ -29,6 +30,7 @@ module.exports = plop => {
   plop.setGenerator('container', containerGenerator);
   plop.setGenerator('tUtil', testUtilGenerator);
   plop.setGenerator('loadable', loadableUtilGenerator);
+  plop.setGenerator('injectSaga', injectSagaUtilGenerator);
 
   plop.addHelper('directory', comp => {
     try {

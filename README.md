@@ -12,6 +12,14 @@
 
 `yarn global add react-floki`
 
+## Examples of generated files
+
+- [Container](generated-files/container)
+- [Component](generated-files/component)
+- [Loadable](generated-files/loadable)
+- [InjectSaga utils](generated-files/inject-saga)
+- [Test-util](generated-files/test-util)
+
 ## Generating containers with tests and stories
 
 ![](screenshots/gcon.png)
