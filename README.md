@@ -80,6 +80,6 @@
 
 **Generate test for all containers in directory:** `react-generate --all container src/app/containers`
 
-# Usages
+# Projects using it
 
 - [React Template](https://github.com/wednesday-solutions/react-template)
