@@ -79,3 +79,7 @@
 **Generate test for all components in directory:** `react-generate --all component src/app/components`
 
 **Generate test for all containers in directory:** `react-generate --all container src/app/containers`
+
+# Usages
+
+- [React Template](https://github.com/wednesday-solutions/react-template)
