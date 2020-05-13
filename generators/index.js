@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const shell = require('shelljs');
 const { execSync } = require('child_process');
-const prettier = 'prettier';
+const prettier = path.join(__dirname, '../node_modules/.bin/prettier');
 const componentGenerator = require(`./component/${
   shell.env.GENERATOR_TYPE
 }/index.js`);
