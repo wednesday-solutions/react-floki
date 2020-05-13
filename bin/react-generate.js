@@ -19,7 +19,11 @@ let commandLineArgs = args.toString().split(',');
 const stdioInherit = { stdio: 'inherit' };
 
 function execShell(commandArray) {
-  childProcess.execFileSync('plop', commandArray, { ...stdioInherit });
+  childProcess.execFileSync(
+    path.join(__dirname, '../node_modules/.bin/plop'),
+    commandArray,
+    { ...stdioInherit },
+  );
 }
 
 // validate input
