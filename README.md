@@ -30,6 +30,14 @@
 
 ## Documentation
 
+### Help
+
+To get a list of commands and usage hints use
+
+```
+react-generate --help
+```
+
 ### Generating tests for all existing components and containers
 
 **Creating a test for a container or component:** `react-generate gt`
