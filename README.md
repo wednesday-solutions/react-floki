@@ -1,5 +1,7 @@
 # react-floki
 
+<img src="https://github.com/wednesday-solutions/react-floki/blob/master/react-floki.png" alt="Wednesday Color Picker" width="400" height="400">
+
 ## Generate new components, containers and tests for existing and new react components
 
 ## Installation
