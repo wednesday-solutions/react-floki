@@ -56,9 +56,20 @@ switch (commandLineArgs[0]) {
       });
       directoryName = commandLineArgs[1];
       const json = path.join(__dirname, '../node_modules/.bin/json');
+
       shell.exec(
         `${json} -I -f ${directoryName}/package.json -e "this.name='${directoryName}'"`,
       );
+      shell.exec(
+        `${json} -I -f ${directoryName}/package.json -e "this.homepage='""'"`,
+      );
+      shell.exec(
+        `${json} -I -f ${directoryName}/package.json -e "this.author='""'"`,
+      );
+      shell.exec(
+        `${json} -I -f ${directoryName}/package.json -e "this.repository='{}'"`,
+      );
+
       commandLineArgs = _.drop(commandLineArgs);
     }
     shell.cd(directoryName);
@@ -181,7 +192,9 @@ switch (commandLineArgs[0]) {
               shell.echo(`Component name: ${component}`);
               childProcess.execSync(
                 `react-generate gtconf ${_.drop(commandLineArgs)} ${component}`,
-                { ...stdioInherit },
+                {
+                  ...stdioInherit,
+                },
               );
             }
           });
