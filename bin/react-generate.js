@@ -62,13 +62,13 @@ switch (commandLineArgs[0]) {
       commandLineArgs = _.drop(commandLineArgs);
     }
     shell.cd(directoryName);
-    shell.exec(`npm run initialize`);
     execShell([
       '-f',
       ...plopGen,
       WEBPACK_BASE_BABEL,
       ..._.drop(commandLineArgs),
     ]);
+    shell.exec(`npm run initialize`);
     break;
   case 'gt':
     execShell(plopGen);
