@@ -57,7 +57,7 @@ switch (commandLineArgs[0]) {
       directoryName = commandLineArgs[1];
       const json = path.join(__dirname, '../node_modules/.bin/json');
       shell.exec(
-        `${json} -I -f package.json -e "this.name='${commandLineArgs[1]}'"`,
+        `${json} -I -f ${directoryName}/package.json -e "this.name='${directoryName}'"`,
       );
       commandLineArgs = _.drop(commandLineArgs);
     }
