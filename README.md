@@ -1,6 +1,6 @@
 # react-floki
 
-<img src="https://github.com/wednesday-solutions/react-floki/blob/master/react-floki.png" alt="React Floki" width="400" height="400">
+![](react-floki.png)
 
 ## Generate new components, containers and tests for existing and new react components
 
