@@ -1,6 +1,6 @@
 # react-floki
 
-![](react-floki.png)
+![](react-floki.svg)
 
 ## Generate new components, containers and tests for existing and new react components
 
