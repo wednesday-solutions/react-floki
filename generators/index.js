@@ -18,6 +18,7 @@ const containerGenerator = require(`./container/${
 const testUtilGenerator = require(`./testUtil/index.js`);
 const loadableUtilGenerator = require(`./loadable/index.js`);
 const injectSagaUtilGenerator = require(`./injectSaga/index.js`);
+const webpackBaseBabelGenerator = require(`./webpack/base/babel/index.js`);
 
 /**
  * Every generated backup file gets this extension
@@ -31,6 +32,7 @@ module.exports = plop => {
   plop.setGenerator('tUtil', testUtilGenerator);
   plop.setGenerator('loadable', loadableUtilGenerator);
   plop.setGenerator('injectSaga', injectSagaUtilGenerator);
+  plop.setGenerator('webpackBaseBabel', webpackBaseBabelGenerator);
 
   plop.addHelper('directory', comp => {
     try {
@@ -55,7 +57,7 @@ module.exports = plop => {
       execSync(`${prettier} --write -- "${folderPath}"`);
       return folderPath;
     } catch (err) {
-      throw err;
+      throw new Error(`Prettier failed`);
     }
   });
 };

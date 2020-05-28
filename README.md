@@ -40,6 +40,12 @@ To get a list of commands and usage hints use
 react-generate --help
 ```
 
+### Creating a new React Application
+
+```
+react-generate init movie-rating
+```
+
 ### Generating tests for all existing components and containers
 
 **Creating a test for a container or component:** `react-generate gt`

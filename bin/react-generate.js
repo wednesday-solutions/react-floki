@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 const shell = require('shelljs');
+const fs = require('fs');
 const childProcess = require('child_process');
 const process = require('process');
 const _ = require('lodash');
@@ -7,6 +8,7 @@ const path = require('path');
 
 const COMPONENT = 'component';
 const CONTAINER = 'container';
+const WEBPACK_BASE_BABEL = 'webpackBaseBabel';
 const TEST_UTIL = 'tUtil';
 const LOADABLE = 'loadable';
 const INJECT_SAGA = 'injectSaga';
@@ -38,8 +40,36 @@ if (!commandLineArgs[0]) {
 shell.env.GENERATOR_TYPE = _.includes(commandLineArgs[0], 't')
   ? 'existing'
   : 'new';
-
+let directoryName = 'react-template';
 switch (commandLineArgs[0]) {
+  case 'init':
+    shell.exec(
+      `git clone https://github.com/wednesday-solutions/react-template`,
+    );
+    shell.cd(process.cwd());
+    if (commandLineArgs[1]) {
+      shell.exec(`mkdir ${commandLineArgs[1]}`);
+      fs.rename(`react-template`, commandLineArgs[1], err => {
+        if (err) {
+          throw new Error('Error while renaming');
+        }
+      });
+      directoryName = commandLineArgs[1];
+      const json = path.join(__dirname, '../node_modules/.bin/json');
+      shell.exec(
+        `${json} -I -f package.json -e "this.name='${commandLineArgs[1]}'"`,
+      );
+      commandLineArgs = _.drop(commandLineArgs);
+    }
+    shell.cd(directoryName);
+    shell.exec(`npm run initialize`);
+    execShell([
+      '-f',
+      ...plopGen,
+      WEBPACK_BASE_BABEL,
+      ..._.drop(commandLineArgs),
+    ]);
+    break;
   case 'gt':
     execShell(plopGen);
     break;
@@ -88,6 +118,7 @@ switch (commandLineArgs[0]) {
   case '--help':
     shell.echo(
       `Generate tests for existing and new react components\n\n` +
+        `init: Create a new react application\n` +
         `gt: Creating a test for a container or component\n` +
         `gtf: Forcefully creating a test for a container or component\n` +
         `gtcom: Creating a test for an existing component\n` +
