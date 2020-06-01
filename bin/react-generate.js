@@ -70,11 +70,10 @@ switch (commandLineArgs[0]) {
         `${json} -I -f ${directoryName}/package.json -e "this.repository='{}'"`,
       );
 
-      shell.exec(`git remote remove origin`);
-
       commandLineArgs = _.drop(commandLineArgs);
     }
     shell.cd(directoryName);
+    shell.exec(`git remote remove origin`);
     execShell([
       '-f',
       ...plopGen,
