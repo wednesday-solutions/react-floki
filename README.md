@@ -1,4 +1,4 @@
-<img align="left" src="https://github.com/wednesday-solutions/serverless/blob/master/serverless_github.svg" width="480" height="460" />
+<img align="left" src="https://github.com/wednesday-solutions/react-floki/blob/master/react_floki_github.svg" width="480" height="460" />
 
 <div>
   <a href="https://www.wednesday.is?utm_source=gthb&utm_medium=repo&utm_campaign=serverless" align="left" style="margin-left: 0;">
@@ -35,8 +35,6 @@ A CLI tool that works with the react template and allows you to scaffold tests, 
 
   <span>We’re always looking for people who value their work, so come and join us. <a href="https://www.wednesday.is/hiring">We are hiring!</a></span>
 </div>
-
-# react-floki
 
 ## Generate new components, containers and tests for existing and new react components
 
