@@ -1,0 +1,62 @@
+/**
+ *
+ * {{properCase name }}
+ *
+ */
+
+{{#if memo}}
+import React, { memo } from 'react'
+{{else}}
+import React from 'react'
+{{/if}}
+import { View, Text } from 'react-native';
+// import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { injectIntl } from 'react-intl'
+import { FormattedMessage as T } from 'react-intl'
+{{#if wantActionsAndReducer}}
+import { createStructuredSelector } from 'reselect'
+{{/if}}
+import { compose } from 'redux'
+{{#if wantActionsAndReducer}}
+import makeSelect{{properCase name}} from './selectors'
+{{/if}}
+
+export function {{ properCase name }}() {
+
+  return (
+    <View>
+      <Text><T id={'{{properCase name}}'} /></Text>
+    </View>
+  )
+}
+
+{{ properCase name }}.propTypes = {
+}
+
+{{#if wantActionsAndReducer}}
+const mapStateToProps = createStructuredSelector({
+  {{ camelCase name }}: makeSelect{{properCase name}}(),
+})
+{{/if}}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+  }
+}
+
+{{#if wantActionsAndReducer}}
+const withConnect = connect(mapStateToProps, mapDispatchToProps)
+{{else}}
+const withConnect = connect(null, mapDispatchToProps)
+{{/if}}
+
+export default compose(
+  withConnect,
+{{#if memo}}
+  memo,
+{{/if}}
+)({{ properCase name }})
+
+export const {{ properCase name }}Test = compose(injectIntl)({{ properCase name }})

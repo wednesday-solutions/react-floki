@@ -1,0 +1,18 @@
+/**
+ *
+ * Tests for {{ properCase name }}
+ *
+ */
+
+import React from 'react'
+// import { fireEvent } from '@testing-library/dom'
+import { renderWithIntl } from '@utils/testUtils'
+import {{ properCase name }} from '../index'
+
+describe('<{{ properCase name }} />', () => {
+
+  it('should render and match the snapshot', () => {
+    const { baseElement } = renderWithIntl(<{{ properCase name }} />)
+    expect(baseElement).toMatchSnapshot()
+  })
+})

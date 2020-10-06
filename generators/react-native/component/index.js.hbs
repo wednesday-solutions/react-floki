@@ -1,0 +1,32 @@
+/**
+ *
+ * {{ properCase name }}
+ *
+ */
+
+{{#if memo}}
+import React, { memo } from 'react'
+{{else}}
+import React from 'react'
+{{/if}}
+import { View, Text } from 'react-native';
+// import PropTypes from 'prop-types'
+// import styled from 'styled-components'
+
+import { FormattedMessage as T } from 'react-intl'
+
+function {{ properCase name }}() {
+  return (
+    <View>
+      <Text><T id={'{{lowerCase name}}'} /></Text>
+    </View>
+  )
+}
+
+{{ properCase name }}.propTypes = {}
+
+{{#if memo}}
+export default memo({{ properCase name }})
+{{else}}
+export default {{ properCase name }}
+{{/if}}
