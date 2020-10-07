@@ -1,0 +1,16 @@
+/**
+ *
+ * Stories for {{ properCase name }}
+ *
+ * @see https://github.com/storybookjs/storybook
+ *
+ */
+
+import React from 'react'
+import { View } from 'react-native';
+import { storiesOf } from '@storybook/react-native'
+import { text } from '@storybook/addon-knobs'
+import {{ properCase name }} from '../index'
+
+
+storiesOf('{{properCase name}}').add('simple', () =><View><{{properCase name}} id={text('id', '{{properCase name}}')}/></View>)

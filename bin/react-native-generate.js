@@ -10,10 +10,9 @@ const COMPONENT = 'component';
 const CONTAINER = 'container';
 const WEBPACK_BASE_BABEL = 'webpackBaseBabel';
 const TEST_UTIL = 'tUtil';
-const LOADABLE = 'loadable';
 const INJECT_SAGA = 'injectSaga';
 
-const generator = path.join(__dirname, '../generators/react/index.js');
+const generator = path.join(__dirname, '../generators/react-native/index.js');
 const plopGen = ['--plopfile', generator];
 
 const [, , ...args] = process.argv;
@@ -31,7 +30,7 @@ function execShell(commandArray) {
 // validate input
 if (!commandLineArgs[0]) {
   shell.exec(
-    `echo Sorry! react-generate requires an argument to be passed. Run react-generate --help for more details`,
+    `echo Sorry! react-native-generate requires an argument to be passed. Run react-native-generate --help for more details`,
   );
   return;
 }
@@ -40,16 +39,16 @@ if (!commandLineArgs[0]) {
 shell.env.GENERATOR_TYPE = _.includes(commandLineArgs[0], 't')
   ? 'existing'
   : 'new';
-let directoryName = 'react-template';
+let directoryName = 'react-native-template';
 switch (commandLineArgs[0]) {
   case 'init':
     shell.exec(
-      `git clone https://github.com/wednesday-solutions/react-template`,
+      `git clone https://github.com/wednesday-solutions/react-native-template`,
     );
     shell.cd(process.cwd());
     if (commandLineArgs[1]) {
       shell.exec(`mkdir ${commandLineArgs[1]}`);
-      fs.rename(`react-template`, commandLineArgs[1], err => {
+      fs.rename(`react-native-template`, commandLineArgs[1], err => {
         if (err) {
           throw new Error('Error while renaming');
         }
@@ -121,16 +120,13 @@ switch (commandLineArgs[0]) {
   case 'gtutil':
     execShell(['-f', ...plopGen, TEST_UTIL, ..._.drop(commandLineArgs)]);
     break;
-  case 'gloadable':
-    execShell(['-f', ...plopGen, LOADABLE, ..._.drop(commandLineArgs)]);
-    break;
   case 'ginjectsaga':
     execShell(['-f', ...plopGen, INJECT_SAGA, ..._.drop(commandLineArgs)]);
     break;
   case '--help':
     shell.echo(
-      `Generate tests for existing and new react components\n\n` +
-        `init: Create a new react application\n` +
+      `Generate tests for existing and new react native components\n\n` +
+        `init: Create a new react native application\n` +
         `gt: Creating a test for a container or component\n` +
         `gtf: Forcefully creating a test for a container or component\n` +
         `gtcom: Creating a test for an existing component\n` +
@@ -145,17 +141,16 @@ switch (commandLineArgs[0]) {
         `gconf: Forcefully creating a container\n` +
         `--all: Adding tests for all existing containers or components.\n` +
         `gtutil: Create a test util file with some test utility functions.\n` +
-        `gloadable: Create a loadable utility file that uses lazy and Suspense from React to lazyload your containers.\n` +
         `ginjectsaga: Create an injector for sagas that work with hooks.\n\n` +
         `-------\n\n` +
-        `Creating a test by specifying type, path and name: react-generate gt component src/app Button\n` +
-        `Creating a test for an existing component by specifying path and name: react-generate gtcon src/app Button\n` +
-        `Creating a test for an existing container by specifying path and name: react-generate gtcom src/app HomePage\n` +
-        `Creating a component/container by specifying type, path and name: react-generate g component src/app Button\n` +
-        `Creating a component by specifying path and name: react-generate gcon src/app Button\n` +
-        `Creating a container by specifying path and name: react-generate gcom src/app HomePage\n` +
-        `Generate test for all components in directory: react-generate --all component src/app/components\n` +
-        `Generate test for all containers in directory: react-generate --all containers src/app/containers`,
+        `Creating a test by specifying type, path and name: react-native-generate gt component src/app Button\n` +
+        `Creating a test for an existing component by specifying path and name: react-native-generate gtcon src/app Button\n` +
+        `Creating a test for an existing container by specifying path and name: react-native-generate gtcom src/app HomePage\n` +
+        `Creating a component/container by specifying type, path and name: react-native-generate g component src/app Button\n` +
+        `Creating a component by specifying path and name: react-native-generate gcon src/app Button\n` +
+        `Creating a container by specifying path and name: react-native-generate gcom src/app HomePage\n` +
+        `Generate test for all components in directory: react-native-generate --all component src/app/components\n` +
+        `Generate test for all containers in directory: react-native-generate --all containers src/app/containers`,
     );
     break;
   case '--all':
@@ -163,7 +158,7 @@ switch (commandLineArgs[0]) {
       commandLineArgs = _.drop(commandLineArgs);
       if (!commandLineArgs[0] || !commandLineArgs[1] || commandLineArgs[2]) {
         shell.exec(
-          `echo Sorry! react-generate --all requires 2 commandLineArgs to be passed. Run react-generate --help for more details`,
+          `echo Sorry! react-native-generate --all requires 2 commandLineArgs to be passed. Run react-native-generate --help for more details`,
         );
         return;
       }
@@ -178,7 +173,9 @@ switch (commandLineArgs[0]) {
           directories.forEach(component => {
             if (!_.includes(component, '.')) {
               shell.exec(
-                `react-generate gtcomf ${_.drop(commandLineArgs)} ${component}`,
+                `react-native-generate gtcomf ${_.drop(
+                  commandLineArgs,
+                )} ${component}`,
               );
             }
           });
@@ -192,7 +189,9 @@ switch (commandLineArgs[0]) {
             if (!_.includes(component, '.')) {
               shell.echo(`Component name: ${component}`);
               childProcess.execSync(
-                `react-generate gtconf ${_.drop(commandLineArgs)} ${component}`,
+                `react-native-generate gtconf ${_.drop(
+                  commandLineArgs,
+                )} ${component}`,
                 {
                   ...stdioInherit,
                 },

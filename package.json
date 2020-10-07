@@ -80,6 +80,7 @@
   },
   "@babel/cli": "7.4.3",
   "bin": {
-    "react-generate": "bin/react-generate.js"
+    "react-generate": "bin/react-generate.js",
+    "react-native-generate": "bin/react-native-generate.js"
   }
 }

@@ -1,0 +1,16 @@
+import { fromJS } from 'immutable'
+import { select{{ properCase name }}Domain } from '../selectors'
+
+describe('{{ properCase name }} selector tests', () => {
+  let mockedState
+
+  beforeEach(() => {
+    mockedState = {
+      {{ camelCase name }}: fromJS({})
+    }
+  })
+
+  it('should select the user state', () => {
+    expect(select{{ properCase name }}Domain(mockedState)).toEqual(mockedState.{{ camelCase name }}.toJS())
+  })
+})
