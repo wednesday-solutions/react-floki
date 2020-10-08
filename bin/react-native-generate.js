@@ -172,10 +172,14 @@ switch (commandLineArgs[0]) {
           shell.cd(cwd);
           directories.forEach(component => {
             if (!_.includes(component, '.')) {
-              shell.exec(
+              shell.echo(`Component name: ${component}`);
+              childProcess.execSync(
                 `react-native-generate gtcomf ${_.drop(
                   commandLineArgs,
                 )} ${component}`,
+                {
+                  ...stdioInherit,
+                },
               );
             }
           });
@@ -187,7 +191,7 @@ switch (commandLineArgs[0]) {
           shell.cd(cwd);
           directories.forEach(component => {
             if (!_.includes(component, '.')) {
-              shell.echo(`Component name: ${component}`);
+              shell.echo(`Container name: ${component}`);
               childProcess.execSync(
                 `react-native-generate gtconf ${_.drop(
                   commandLineArgs,
