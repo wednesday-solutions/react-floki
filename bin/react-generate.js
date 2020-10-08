@@ -155,7 +155,7 @@ switch (commandLineArgs[0]) {
         `Creating a component by specifying path and name: react-generate gcon src/app Button\n` +
         `Creating a container by specifying path and name: react-generate gcom src/app HomePage\n` +
         `Generate test for all components in directory: react-generate --all component src/app/components\n` +
-        `Generate test for all containers in directory: react-generate --all containers src/app/containers`,
+        `Generate test for all containers in directory: react-generate --all container src/app/containers`,
     );
     break;
   case '--all':
