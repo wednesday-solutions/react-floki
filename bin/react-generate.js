@@ -192,11 +192,11 @@ switch (commandLineArgs[0]) {
           shell.cd(`./${commandLineArgs[1]}`);
           directories = shell.ls();
           shell.cd(cwd);
-          directories.forEach(component => {
-            if (!_.includes(component, '.')) {
-              shell.echo(`Container name: ${component}`);
+          directories.forEach(container => {
+            if (!_.includes(container, '.')) {
+              shell.echo(`Container name: ${container}`);
               childProcess.execSync(
-                `react-generate gtconf ${_.drop(commandLineArgs)} ${component}`,
+                `react-generate gtconf ${_.drop(commandLineArgs)} ${container}`,
                 {
                   ...stdioInherit,
                 },
