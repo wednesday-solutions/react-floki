@@ -17,7 +17,7 @@ export const {{ camelCase name }}Reducer = (state = initialState, action) =>
   produce(state, (/* draft */) => {
     switch (action.type) {
       case {{ camelCase name}}Types.DEFAULT_ACTION:
-        return {...state, somePayload: action.payload}
+        return {...state, somePayload: action.somePayload}
       default:
         return state
     }
