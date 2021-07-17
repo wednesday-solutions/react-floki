@@ -1,4 +1,3 @@
-import { fromJS } from 'immutable'
 import { select{{ properCase name }}Domain } from '../selectors'
 
 describe('{{ properCase name }} selector tests', () => {
@@ -6,11 +5,11 @@ describe('{{ properCase name }} selector tests', () => {
 
   beforeEach(() => {
     mockedState = {
-      {{ camelCase name }}: fromJS({})
+      {{ camelCase name }}: {}
     }
   })
 
   it('should select the user state', () => {
-    expect(select{{ properCase name }}Domain(mockedState)).toEqual(mockedState.{{ camelCase name }}.toJS())
+    expect(select{{ properCase name }}Domain(mockedState)).toEqual(mockedState.{{ camelCase name }})
   })
 })
