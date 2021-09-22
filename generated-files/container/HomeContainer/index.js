@@ -33,7 +33,7 @@ export function HomeContainer() {
 HomeContainer.propTypes = {};
 
 const mapStateToProps = createStructuredSelector({
-  testContainer: selectHomeContainerDomain(),
+  homeConatiner: selectHomeContainerDomain(),
 })
 
 function mapDispatchToProps(dispatch) {
