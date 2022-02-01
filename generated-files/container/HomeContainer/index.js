@@ -4,16 +4,16 @@
  *
  */
 
-import React from 'react';
+import React, { memo } from 'react';
 // import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
-import { injectIntl, FormattedMessage as T } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import { Helmet } from 'react-helmet';
-
+import { FormattedMessage as T } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { injectSaga } from 'redux-injectors';
-import selectHomeContainerDomain from './selectors';
+import { selectHomeContainer } from './selectors';
 import saga from './saga';
 
 export function HomeContainer() {
@@ -23,7 +23,7 @@ export function HomeContainer() {
         <title>HomeContainer</title>
         <meta name="description" content="Description of HomeContainer" />
       </Helmet>
-      <T id="HomeContainer" />
+      <T id={'HomeContainer'} />
     </div>
   );
 }
@@ -31,7 +31,7 @@ export function HomeContainer() {
 HomeContainer.propTypes = {};
 
 const mapStateToProps = createStructuredSelector({
-  homeConatiner: selectHomeContainerDomain(),
+  homeContainer: selectHomeContainer(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -47,6 +47,7 @@ const withConnect = connect(
 
 export default compose(
   withConnect,
+  memo,
   injectSaga({ key: 'homeContainer', saga }),
 )(HomeContainer);
 
