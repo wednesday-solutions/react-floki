@@ -1,6 +1,6 @@
 {
   "name": "react-floki",
-  "version": "1.0.90",
+  "version": "1.0.91",
   "description": "A React component, container and test generation library",
   "repository": {
     "type": "git",
