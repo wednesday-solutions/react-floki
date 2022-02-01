@@ -11,7 +11,6 @@ const CONTAINER = 'container';
 const WEBPACK_BASE_BABEL = 'webpackBaseBabel';
 const TEST_UTIL = 'tUtil';
 const LOADABLE = 'loadable';
-const INJECT_SAGA = 'injectSaga';
 
 const generator = path.join(__dirname, '../generators/index.js');
 const plopGen = ['--plopfile', generator];
@@ -124,9 +123,6 @@ switch (commandLineArgs[0]) {
   case 'gloadable':
     execShell(['-f', ...plopGen, LOADABLE, ..._.drop(commandLineArgs)]);
     break;
-  case 'ginjectsaga':
-    execShell(['-f', ...plopGen, INJECT_SAGA, ..._.drop(commandLineArgs)]);
-    break;
   case '--help':
     shell.echo(
       `Generate tests for existing and new react components\n\n` +
@@ -146,7 +142,6 @@ switch (commandLineArgs[0]) {
         `--all: Adding tests for all existing containers or components.\n` +
         `gtutil: Create a test util file with some test utility functions.\n` +
         `gloadable: Create a loadable utility file that uses lazy and Suspense from React to lazyload your containers.\n` +
-        `ginjectsaga: Create an injector for sagas that work with hooks.\n\n` +
         `-------\n\n` +
         `Creating a test by specifying type, path and name: react-generate gt component src/app Button\n` +
         `Creating a test for an existing component by specifying path and name: react-generate gtcon src/app Button\n` +

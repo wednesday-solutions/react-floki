@@ -17,7 +17,6 @@ const containerGenerator = require(`./container/${
 }/index.js`);
 const testUtilGenerator = require(`./testUtil/index.js`);
 const loadableUtilGenerator = require(`./loadable/index.js`);
-const injectSagaUtilGenerator = require(`./injectSaga/index.js`);
 const webpackBaseBabelGenerator = require(`./webpack/base/babel/index.js`);
 
 /**
@@ -31,7 +30,6 @@ module.exports = plop => {
   plop.setGenerator('container', containerGenerator);
   plop.setGenerator('tUtil', testUtilGenerator);
   plop.setGenerator('loadable', loadableUtilGenerator);
-  plop.setGenerator('injectSaga', injectSagaUtilGenerator);
   plop.setGenerator('webpackBaseBabel', webpackBaseBabelGenerator);
 
   plop.addHelper('directory', comp => {

@@ -51,7 +51,6 @@ A CLI tool that works with the react template and allows you to scaffold tests, 
 - [Container](generated-files/container)
 - [Component](generated-files/component)
 - [Loadable](generated-files/loadable)
-- [InjectSaga utils](generated-files/inject-saga)
 - [Test-util](generated-files/test-util)
 
 ## Generating containers with tests and stories
