@@ -4,10 +4,9 @@
  *
  */
 import produce from 'immer';
-import { fromJS } from 'immutable';
 import { createActions } from 'reduxsauce';
 
-export const initialState = fromJS({});
+export const initialState = {};
 
 export const {
   Types: homeContainerTypes,
@@ -21,7 +20,7 @@ export const homeContainerReducer = (state = initialState, action) =>
   produce(state, (/* draft */) => {
     switch (action.type) {
       case homeContainerTypes.DEFAULT_ACTION:
-        return state.set('somePayload', action.somePayload);
+        return { ...state, somePayload: action.somePayload };
       default:
         return state;
     }

@@ -1,5 +1,4 @@
 // import produce from 'immer'
-import { fromJS } from 'immutable';
 import {
   homeContainerReducer,
   homeContainerTypes,
@@ -18,10 +17,10 @@ describe('HomeContainer reducer tests', () => {
   });
 
   it('should return the update the state when an action of type DEFAULT is dispatched', () => {
-    const expectedResult = fromJS(state.toJS()).set(
-      'somePayload',
-      'Mohammed Ali Chherawalla',
-    );
+    const expectedResult = {
+      ...state,
+      somePayload: 'Mohammed Ali Chherawalla',
+    };
     expect(
       homeContainerReducer(state, {
         type: homeContainerTypes.DEFAULT_ACTION,
