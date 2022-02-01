@@ -5,10 +5,15 @@ import { initialState } from './reducer'
  * Direct selector to the {{ camelCase name }} state domain
  */
 
-const select{{ properCase name }}Domain = state => state.{{ camelCase name }} || initialState
+export const select{{ properCase name }}Domain = state => state.{{ camelCase name }} || initialState
 
-const makeSelect{{ properCase name }} = () =>
-  createSelector(select{{ properCase name }}Domain, substate => substate)
 
-export default makeSelect{{ properCase name }}
-export { select{{ properCase name }}Domain }
+
+/**
+ * use createSelector if you are doing something with the returned state.
+ * https://redux.js.org/usage/deriving-data-selectors#createselector-overview
+ * e.g:  const makeSelect{{ properCase name }} = () =>
+ * createSelector(select{{ properCase name }}Domain, substate =>  get(substate, 'somevalue'))
+ */
+
+export default select{{ properCase name }}Domain

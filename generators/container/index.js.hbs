@@ -24,7 +24,7 @@ import { compose } from 'redux'
 import { injectSaga } from 'redux-injectors';
 {{/if}}
 {{#if wantActionsAndReducer}}
-import makeSelect{{properCase name}} from './selectors'
+import select{{properCase name}} from './selectors'
 {{/if}}
 {{#if wantSaga}}
 import saga from './saga'
@@ -50,7 +50,7 @@ export function {{ properCase name }}() {
 
 {{#if wantActionsAndReducer}}
 const mapStateToProps = createStructuredSelector({
-  {{ camelCase name }}: makeSelect{{properCase name}}(),
+  {{ camelCase name }}: select{{properCase name}}(),
 })
 {{/if}}
 

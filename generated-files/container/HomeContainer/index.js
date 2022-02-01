@@ -13,7 +13,7 @@ import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { injectSaga } from 'redux-injectors';
-import makeSelectHomeContainer from './selectors';
+import selectHomeContainerDomain from './selectors';
 import saga from './saga';
 
 export function HomeContainer() {
@@ -31,7 +31,7 @@ export function HomeContainer() {
 HomeContainer.propTypes = {};
 
 const mapStateToProps = createStructuredSelector({
-  homeContainer: makeSelectHomeContainer(),
+  homeConatiner: selectHomeContainerDomain(),
 });
 
 function mapDispatchToProps(dispatch) {
