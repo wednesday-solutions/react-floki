@@ -5,14 +5,13 @@ import { initialState } from './reducer';
  * Direct selector to the homeContainer state domain
  */
 
-const selectHomeContainerDomain = state =>
-  (state.homeContainer || initialState).toJS();
+export const selectHomeContainerDomain = state => state.homeContainer || initialState
 
-const makeSelectHomeContainer = () =>
-  createSelector(
-    selectHomeContainerDomain,
-    substate => substate,
-  );
+/**
+ * use createSelector if you are doing something with the returned state.
+ * https://redux.js.org/usage/deriving-data-selectors#createselector-overview
+ * e.g:  const makeSelectHomeContainer = () =>
+ * createSelector(selectHomeContainerDomain, substate =>  get(substate, 'somevalue'))
+ */
 
-export default makeSelectHomeContainer;
-export { selectHomeContainerDomain };
+export default selectHomeContainerDomain
