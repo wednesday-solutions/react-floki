@@ -21,7 +21,7 @@ import { createStructuredSelector } from 'reselect'
 {{/if}}
 import { compose } from 'redux'
 {{#if wantSaga}}
-import { useInjectSaga } from '@utils/injectSaga'
+import { injectSaga } from 'redux-injectors';
 {{/if}}
 {{#if wantActionsAndReducer}}
 import select{{properCase name}} from './selectors'
@@ -31,9 +31,6 @@ import saga from './saga'
 {{/if}}
 
 export function {{ properCase name }}() {
-  {{#if wantSaga}}
-  useInjectSaga({ key: '{{ camelCase name }}', saga })
-  {{/if}}
 
   return (
     <div>
@@ -74,6 +71,9 @@ export default compose(
 {{#if memo}}
   memo,
 {{/if}}
+{{#if wantSaga}}
+  injectSaga({ key: '{{ camelCase name }}', saga })
+  {{/if}}
 )({{ properCase name }})
 
 export const {{ properCase name }}Test = compose(injectIntl)({{ properCase name }})
