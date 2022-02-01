@@ -24,7 +24,7 @@ import { compose } from 'redux'
 import { injectSaga } from 'redux-injectors';
 {{/if}}
 {{#if wantActionsAndReducer}}
-import select{{properCase name}} from './selectors'
+import { select{{properCase name}} } from './selectors'
 {{/if}}
 {{#if wantSaga}}
 import saga from './saga'

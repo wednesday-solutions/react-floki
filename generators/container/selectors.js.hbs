@@ -5,9 +5,7 @@ import { initialState } from './reducer'
  * Direct selector to the {{ camelCase name }} state domain
  */
 
-export const select{{ properCase name }}Domain = state => state.{{ camelCase name }} || initialState
-
-
+const select{{ properCase name }}Domain = state => state.{{ camelCase name }} || initialState
 
 /**
  * use createSelector if you are doing something with the returned state.
@@ -15,5 +13,5 @@ export const select{{ properCase name }}Domain = state => state.{{ camelCase nam
  * e.g:  const makeSelect{{ properCase name }} = () =>
  * createSelector(select{{ properCase name }}Domain, substate =>  get(substate, 'somevalue'))
  */
-
-export default select{{ properCase name }}Domain
+export const select{{ properCase name }} = () =>
+  createSelector(select{{ properCase name }}Domain, substate => substate)
