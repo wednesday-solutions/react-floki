@@ -3,7 +3,7 @@ import { select{{ properCase name }}, selectSomePayLoad } from '../selectors';
 describe('{{ properCase name }} selector tests', () => {
   const mockedState = {
       {{ camelCase name }}: {
-        somePayload: "W.S"
+        somePayLoad: "W.S"
       }
     }
 
@@ -12,8 +12,8 @@ describe('{{ properCase name }} selector tests', () => {
     expect({{ camelCase name }}Selector(mockedState)).toEqual(mockedState.{{ camelCase name }});
   });
 
-  it('should select the somePayload state', () => {
-    const somePayloadSelector = selectSomePayLoad();
-    expect(somePayloadSelector(mockedState)).toEqual(mockedState.{{ camelCase name }}.somePayload);
+  it('should select the somePayLoad state', () => {
+    const somePayLoadSelector = selectSomePayLoad();
+    expect(somePayLoadSelector(mockedState)).toEqual(mockedState.{{ camelCase name }}.somePayLoad);
   });
 })

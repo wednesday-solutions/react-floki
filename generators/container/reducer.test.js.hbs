@@ -6,11 +6,11 @@ describe('{{ properCase name }} reducer tests', () => {
   });
 
   it('should return the updated state when an action of type DEFAULT is dispatched', () => {
-    const expectedResult = {...initialState, somePayload: 'Mohammed Ali Chherawalla'};
+    const expectedResult = {...initialState, somePayLoad: 'Mohammed Ali Chherawalla'};
     expect(
       {{ camelCase name }}Reducer(initialState, {
         type: {{ camelCase name}}Types.DEFAULT_ACTION,
-        somePayload: 'Mohammed Ali Chherawalla'
+        somePayLoad: 'Mohammed Ali Chherawalla'
       })
     ).toEqual(expectedResult);
   });

@@ -11,16 +11,15 @@ export const initialState = {
 }
 
 export const { Types: {{ camelCase name }}Types, Creators: {{ camelCase name }}Creators } = createActions({
-  defaultAction: ['somePayload']
+  defaultAction: ['somePayLoad']
 })
 
 export const {{ camelCase name }}Reducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
       case {{ camelCase name}}Types.DEFAULT_ACTION:
-        draft.somePayload = action.somePayload;
+        draft.somePayLoad = action.somePayLoad;
       default:
-        return state
     }
   })
 
