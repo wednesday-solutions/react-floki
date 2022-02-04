@@ -1,24 +1,17 @@
-// import produce from 'immer'
-import { {{ camelCase name }}Reducer, {{ camelCase name }}Types, initialState } from '../reducer'
+import { {{ camelCase name }}Reducer, {{ camelCase name }}Types, initialState } from '../reducer';
 
-/* eslint-disable default-case, no-param-reassign */
 describe('{{ properCase name }} reducer tests', () => {
-  let state
-  beforeEach(() => {
-    state = initialState
-  })
+  it('should return the initial state by default', () => {
+    expect({{ camelCase name }}Reducer(undefined, {})).toEqual(initialState);
+  });
 
-  it('should return the initial state', () => {
-    expect({{ camelCase name }}Reducer(undefined, {})).toEqual(state)
-  })
-
-  it('should return the update the state when an action of type DEFAULT is dispatched', () => {
-    const expectedResult = {...state, somePayload: 'Mohammed Ali Chherawalla'}
+  it('should return the updated state when an action of type DEFAULT is dispatched', () => {
+    const expectedResult = {...initialState, somePayload: 'Mohammed Ali Chherawalla'};
     expect(
-      {{ camelCase name }}Reducer(state, {
+      {{ camelCase name }}Reducer(initialState, {
         type: {{ camelCase name}}Types.DEFAULT_ACTION,
         somePayload: 'Mohammed Ali Chherawalla'
       })
-    ).toEqual(expectedResult)
-  })
-})
+    ).toEqual(expectedResult);
+  });
+});

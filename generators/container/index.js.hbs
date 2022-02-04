@@ -1,37 +1,36 @@
 /**
  *
- * {{properCase name }}
+ * {{properCase name }} Container
  *
  */
 
 {{#if memo}}
-import React, { memo } from 'react'
+import React, { memo } from 'react';
 {{else}}
-import React from 'react'
+import React from 'react';
 {{/if}}
-// import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { injectIntl } from 'react-intl'
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { injectIntl } from 'react-intl';
 {{#if wantHeaders}}
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet';
 {{/if}}
-import { FormattedMessage as T } from 'react-intl'
+import { FormattedMessage as T } from 'react-intl';
 {{#if wantActionsAndReducer}}
-import { createStructuredSelector } from 'reselect'
+import { createStructuredSelector } from 'reselect';
 {{/if}}
-import { compose } from 'redux'
+import { compose } from 'redux';
 {{#if wantSaga}}
 import { injectSaga } from 'redux-injectors';
 {{/if}}
 {{#if wantActionsAndReducer}}
-import { select{{properCase name}} } from './selectors'
+import { selectSomePayLoad } from './selectors';
 {{/if}}
 {{#if wantSaga}}
-import saga from './saga'
+import saga from './saga';
 {{/if}}
 
 export function {{ properCase name }}() {
-
   return (
     <div>
     {{#if wantHeaders}}
@@ -43,27 +42,28 @@ export function {{ properCase name }}() {
     <T id={'{{properCase name}}'} />
     </div>
   )
-}
+};
 
 {{ properCase name }}.propTypes = {
-}
+  somePayLoad: PropTypes.any,
+};
 
 {{#if wantActionsAndReducer}}
 const mapStateToProps = createStructuredSelector({
-  {{ camelCase name }}: select{{properCase name}}(),
+  somePayLoad: selectSomePayLoad(),
 })
 {{/if}}
 
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
-  }
-}
+  };
+};
 
 {{#if wantActionsAndReducer}}
-const withConnect = connect(mapStateToProps, mapDispatchToProps)
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
 {{else}}
-const withConnect = connect(null, mapDispatchToProps)
+const withConnect = connect(null, mapDispatchToProps);
 {{/if}}
 
 export default compose(
@@ -74,6 +74,6 @@ export default compose(
 {{#if wantSaga}}
   injectSaga({ key: '{{ camelCase name }}', saga })
   {{/if}}
-)({{ properCase name }})
+)({{ properCase name }});
 
-export const {{ properCase name }}Test = compose(injectIntl)({{ properCase name }})
+export const {{ properCase name }}Test = compose(injectIntl)({{ properCase name }});

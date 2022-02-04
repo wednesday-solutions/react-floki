@@ -6,18 +6,19 @@
 import produce from 'immer'
 import { createActions } from 'reduxsauce'
 
-export const initialState = {}
+export const initialState = {
+  somePayLoad: null
+}
 
 export const { Types: {{ camelCase name }}Types, Creators: {{ camelCase name }}Creators } = createActions({
   defaultAction: ['somePayload']
 })
 
-/* eslint-disable default-case, no-param-reassign */
 export const {{ camelCase name }}Reducer = (state = initialState, action) =>
-  produce(state, (/* draft */) => {
+  produce(state, draft => {
     switch (action.type) {
       case {{ camelCase name}}Types.DEFAULT_ACTION:
-        return {...state, somePayload: action.somePayload}
+        draft.somePayload = action.somePayload;
       default:
         return state
     }
