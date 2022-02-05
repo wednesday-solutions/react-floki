@@ -1,16 +1,19 @@
-import { select{{ properCase name }} } from '../selectors'
+import { select{{ properCase name }}, selectSomePayLoad } from '../selectors';
 
 describe('{{ properCase name }} selector tests', () => {
-  let mockedState
-
-  beforeEach(() => {
-    mockedState = {
-      {{ camelCase name }}: {}
+  const mockedState = {
+      {{ camelCase name }}: {
+        somePayLoad: "W.S"
+      }
     }
-  })
 
-  it('should select the user state', () => {
+  it('should select the {{ camelCase name }} state', () => {
     const {{ camelCase name }}Selector = select{{ properCase name }}();
     expect({{ camelCase name }}Selector(mockedState)).toEqual(mockedState.{{ camelCase name }});
-  })
+  });
+
+  it('should select the somePayLoad state', () => {
+    const somePayLoadSelector = selectSomePayLoad();
+    expect(somePayLoadSelector(mockedState)).toEqual(mockedState.{{ camelCase name }}.somePayLoad);
+  });
 })
